@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Hotel Booking Confirmation</title>
+    <style media="all" type="text/css">
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #f4f5f6;
+          margin: 0;
+          padding: 0;
+      }
+
+      .container {
+          margin: 0 auto !important;
+          max-width: 600px;
+          padding: 24px;
+      }
+
+      .content {
+          box-sizing: border-box;
+          display: block;
+          margin: 0 auto;
+          max-width: 600px;
+          padding: 0;
+      }
+
+      .main {
+          background: #ffffff;
+          border: 1px solid #eaebed;
+          border-radius: 16px;
+          width: 100%;
+      }
+
+      .wrapper {
+          box-sizing: border-box;
+          padding: 24px;
+      }
+
+      .footer {
+          clear: both;
+          padding-top: 24px;
+          text-align: center;
+          width: 100%;
+      }
+
+      .footer td,
+      .footer p,
+      .footer span,
+      .footer a {
+          color: #9a9ea6;
+          font-size: 16px;
+          text-align: center;
+      }
+
+      .btn a {
+          background-color: #0867ec;
+          border: solid 2px #0867ec;
+          border-radius: 4px;
+          box-sizing: border-box;
+          color: #ffffff;
+          cursor: pointer;
+          display: inline-block;
+          font-size: 16px;
+          font-weight: bold;
+          margin: 0;
+          padding: 12px 24px;
+          text-decoration: none;
+          text-transform: capitalize;
+      }
+
+      .btn-primary table td {
+          background-color: #0867ec;
+      }
+
+      .btn-primary a {
+          background-color: #0867ec;
+          border-color: #0867ec;
+          color: #ffffff;
+      }
+
+      @media only screen and (max-width: 640px) {
+          .wrapper {
+              padding: 8px !important;
+          }
+
+          .container {
+              padding: 0 !important;
+              padding-top: 8px !important;
+              width: 100% !important;
+          }
+
+          .main {
+              border-left-width: 0 !important;
+              border-radius: 0 !important;
+              border-right-width: 0 !important;
+          }
+
+          .btn a {
+              font-size: 16px !important;
+              max-width: 100% !important;
+              width: 100% !important;
+          }
+      }
+  </style>
+</head>
+<body>
+    <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td>&nbsp;</td>
+            <td class="container">
+                <div class="content">
+                    <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td class="wrapper">
+                                <h2>New Hotel Booking</h2>
+                                <p>Hello Admin,</p>
+                                <p>A new hotel booking has been made.</p>
+                                <p>Booking Details:</p>
+                                <ul>
+                                    <li><strong>User Name:</strong> {{ $user->last_name }}</li>
+                                    <li><strong>User Email:</strong> {{ $user->email }}</li>
+                                    <li><strong>Hotel:</strong> {{ $hotel->hotel_name }}</li>
+                                    <li><strong>Check-in Date:</strong> {{ $bookingDetails->pivot->check_in_date }}</li>
+                                    <li><strong>Check-out Date:</strong> {{ $bookingDetails->pivot->check_out_date }}</li>
+                                    <li><strong>Total Price:</strong> {{ number_format($hotel->price, 2) }} Tsh</li>
+                                    <!-- Add more booking details as needed -->
+                                </ul>
+                                <p>If you need further assistance or have any questions, feel free to contact the user at {{ $user->email }}.</p>
+                                <p>Best regards,</p>
+                                <p>Your Admin Team</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+</body>
+</html>
