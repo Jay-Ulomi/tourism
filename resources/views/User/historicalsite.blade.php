@@ -8,7 +8,7 @@
 
         <div class="owl-carousel owl-3-slider">
             @foreach ($historicalSites as $historicalSite)
-                <div class="item">
+                <div class="item"  onclick="window.location='{{ route('history', ['id' => $historicalSite->id]) }}'" style="cursor:pointer;">
                     <a class="media-thumb" href="{{ asset('storage/' . $historicalSite->history_image) }}" data-fancybox="gallery">
                         <div class="media-text">
                             <h3>{{ $historicalSite->history_name }}</h3>

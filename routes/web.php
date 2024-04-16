@@ -51,7 +51,7 @@ use App\Http\Controllers\ProfileImageController;
 
     Route::get('/view-bookingplan',[BookingController::class,'viewPlan'])->name('view-bookingplan');
 
-
+    Route::get('/Info-Historical-Site/{id}',[HistoricalSiteController::class , "showDetails"]) -> name("history");
 
 
 
@@ -83,6 +83,8 @@ Route::middleware(['checkRole:customer'])->group(function () {
         Route::post('/planstore/{planId}', [PlanbookingController::class, 'Planstore'])->name('planstore');
         Route::put('editBooking/{id}', [PlanbookingController::class, 'EditDay'])->name('editBooking');
         Route::delete('/deleteBooking/{id}', [PlanbookingController::class, 'destroy'])->name('deleteBooking' );
+
+        Route::get('/Info-Historical-Site/{id}',[HistoricalSiteController::class , "showDetails"]) -> name("history");
 
     });
 

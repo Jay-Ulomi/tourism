@@ -40,6 +40,9 @@
                         No Image
                     </div>
                 @endif
+                <img src="{{ asset('storage/' . $hotel->image2) }}" style="height: 450px;"  class="img-fluid rounded-20">
+                <img src="{{ asset('storage/' . $hotel->image3) }}" style="height: 450px;"  class="img-fluid rounded-20">
+                <img src="{{ asset('storage/' . $hotel->image4) }}" style="height: 450px;"  class="img-fluid rounded-20">
                 </div>
             </div>
             <div class="col-lg-5 pl-lg-5 ml-auto">
@@ -120,58 +123,6 @@
         </div>
     </div>
 </div>
-
-
-
-{{--
-
-<div class="untree_co-section">
-    <div class="container">
-        <div class="row justify-content-center text-center mb-5">
-            <div class="col-lg-6">
-                <h2 class="section-title text-center mb-3">{{ $offers->offer_title }} &amp; Discounts</h2>
-                <p>
-                    We offer the best deals and discounts on our tours to make your travel experience more affordable.
-                </p>
-            </div>
-        </div>
-        <div class="row">
-            @foreach ($hotelsOffer as $hotel)
-                <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                    <div class="media-1 position-relative">
-                        <div class="ribbon-wrapper">
-                            <div class="ribbon">50% OFF</div>
-                        </div>
-                        <a href="#" class="d-block mb-3">
-                            @if ($hotel->hotel_image)
-                                <img src="{{ asset('storage/' . $hotel->hotel_image) }}" alt="Image" class="img-fluid imgsize">
-                            @else
-                                No Image
-                            @endif
-                        </a>
-                        <span class="loc mb-2">
-                            <span class="icon-room mr-3"></span>
-                            <span>{{ $hotel->hotel_name }}</span>
-                        </span>
-                        <div class="pt-2">
-                            <div>
-                                <h3><a href="#">{{ $hotel->city }}</a></h3>
-                                <div class="price ml-auto">
-                                    <span>{{ $hotel->price }}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-
-        </div>
-    </div>
-</div>
- --}}
-
-
-
 
 
 @include('User.footer')

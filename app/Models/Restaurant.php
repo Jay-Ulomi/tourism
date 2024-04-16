@@ -14,7 +14,10 @@ class Restaurant extends Model
         'restaurant_image',
         'description',
         'city',
-        'category_id'
+        'category_id',
+        'image2',
+        'image3',
+        'image4',
     ];
 
     public function category()
@@ -22,5 +25,5 @@ class Restaurant extends Model
         return $this->belongsTo(Category::class);
     }
 
-   
+
 }

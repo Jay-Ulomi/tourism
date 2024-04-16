@@ -46,30 +46,42 @@ class HotelController extends Controller
 
     public function store(Request $request)
 {
-   try{
-    $validatedData = $request->validate([
-        'hotel_name' => 'required|string|max:255',
-        'price' => 'required|numeric|gt:0',
-        'hotel_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust the file types and size as needed
-        'city' => 'nullable|string|max:255',
-        'description' => 'nullabl e|string',
-        'category_id' => 'required',
-        'rate' => 'numeric|min:0|max:5',
-    ]);
+    try {
+        $validatedData = $request->validate([
+            'hotel_name' => 'required|string|max:255',
+            'price' => 'required|numeric|gt:0',
+            'hotel_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'city' => 'nullable|string|max:255',
+            'description' => 'nullable|string',
+            'category_id' => 'required',
+            'rate' => 'numeric|min:0|max:5',
+            'image2' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image3' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image4' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
 
-    // Check if an image is uploaded
-    if ($request->hasFile('hotel_image')) {
-        $imagePath = $request->file('hotel_image')->store('hotel_images', 'public');
-        $validatedData['hotel_image'] = $imagePath;
+
+        if ($request->hasFile('hotel_image')) {
+            $imagePath = $request->file('hotel_image')->store('hotel_images', 'public');
+            $validatedData['hotel_image'] = $imagePath;
+        }
+
+
+        for ($i = 2; $i <= 4; $i++) {
+            $imageKey = 'image' . $i;
+            if ($request->hasFile($imageKey)) {
+                $imagePath = $request->file($imageKey)->store('hotel_images', 'public');
+                $validatedData[$imageKey] = $imagePath;
+            }
+        }
+
+        // Create the hotel with validated data
+        $hotel = Hotel::create($validatedData);
+
+        return back()->with('message', 'Hotel Added Successfully');
+    } catch (\Exception $e) {
+        return back()->with('error', 'Error Adding Hotel');
     }
-
-    $hotel = Hotel::create($validatedData);
-
-    return back()->with('message','Hotel Added Successful');
-   }
-   catch(\Exception $e){
-    return back()->with('error', 'Error Add Hotel ');
-   }
 
 }
 
@@ -88,17 +100,26 @@ class HotelController extends Controller
             $validatedData = $request->validate([
                 'hotel_name' => 'required|string|max:255',
                 'price' => 'required|numeric|gt:0',
-                'hotel_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust the file types and size as needed
+                'hotel_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
                 'city' => 'nullable|string|max:255',
                 'description' => 'nullable|string',
                 'category_id' => 'required',
                 'rate' => 'numeric|min:0|max:5',
+                'image2' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+                'image3' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+                'image4' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
                 ]);
 
-            // Check if an image is uploaded
             if ($request->hasFile('hotel_image')) {
                 $imagePath = $request->file('hotel_image')->store('hotel_images', 'public');
                 $validatedData['hotel_image'] = $imagePath;
+            }
+            for ($i = 2; $i <= 4; $i++) {
+                $imageKey = 'image' . $i;
+                if ($request->hasFile($imageKey)) {
+                    $imagePath = $request->file($imageKey)->store('hotel_images', 'public');
+                    $validatedData[$imageKey] = $imagePath;
+                }
             }
 
             $hotel->update($validatedData);
@@ -128,7 +149,7 @@ class HotelController extends Controller
             $bookingHotel = $user->hotels()->get(); // Retrieve all hotels for the current user
             $bookingHotels[$user->id] = $bookingHotel; // Store the hotels in an array with the user's ID as key
         }
-        
+
 
         return view('Admin.Booking.Hotel-Booking', compact('user', 'users', 'bookingHotels'));
     }

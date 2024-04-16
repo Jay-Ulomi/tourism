@@ -58,18 +58,34 @@
                                         <input type="file" name="restaurant_image" class="form-control">
                                     </div>
                                     <div class="form-wrapper">
-                                        <label for="category_id">Category:</label>
-                                        <select name="category_id" class="form-control">
-                                            <option value="" selected disabled>Select Category</option>
-                                            @foreach ($categories as $category)
-                                                <option value="{{ $category->id }}">{{ $category->category_name }}</option>
-                                            @endforeach
-                                        </select>
+                                        <label for="">Restaurant Image</label>
+                                        <input type="file" name="image2" class="form-control">
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <div class="form-wrapper">
+                                        <label for="">Restaurant Image</label>
+                                        <input type="file" name="image3" class="form-control">
+                                    </div>
+                                    <div class="form-wrapper">
+                                        <label for="">Restaurant Image</label>
+                                        <input type="file" name="image4" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                 <div class="form-wrapper">
                                     <label for="">Description</label>
                                     <input type="text" name="description" class="form-control">
+                                </div>
+                                <div class="form-wrapper">
+                                    <label for="category_id">Category:</label>
+                                    <select name="category_id" class="form-control">
+                                        <option value="" selected disabled>Select Category</option>
+                                        @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                                 </div>
                                 {{-- <div class="form-group">
                                     <div class="form-wrapper">

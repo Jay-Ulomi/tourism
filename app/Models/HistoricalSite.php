@@ -15,7 +15,10 @@ class HistoricalSite extends Model
         'description',
         'price',
         'city',
+        'image2',
+        'image3',
+        'image4',
     ];
 
-    
+
 }

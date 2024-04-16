@@ -17,7 +17,10 @@ class Hotel extends Model
         'city',
         'description',
         'category_id',
-        'rate'
+        'rate',
+        'image2',
+        'image3',
+        'image4',
     ];
 
     /**

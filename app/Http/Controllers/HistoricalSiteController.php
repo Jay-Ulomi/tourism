@@ -40,6 +40,9 @@ class HistoricalSiteController extends Controller
                 'description' => 'nullable|string',
                 'price' => 'required|numeric|gt:0',
                 'city' => 'nullable|string|max:255',
+                'image2' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+                'image3' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+                'image4' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             ]);
 
             // Check if an image is uploaded
@@ -47,6 +50,14 @@ class HistoricalSiteController extends Controller
                 // Upload the new image
                 $imagePath = $request->file('history_image')->store('history_images', 'public');
                 $validatedData['history_image'] = $imagePath;
+            }
+
+            for ($i = 2; $i <= 4; $i++) {
+                $imageKey = 'image' . $i;
+                if ($request->hasFile($imageKey)) {
+                    $imagePath = $request->file($imageKey)->store('history_images', 'public');
+                    $validatedData[$imageKey] = $imagePath;
+                }
             }
 
             $historicalSite = HistoricalSite::create($validatedData);
@@ -76,6 +87,9 @@ class HistoricalSiteController extends Controller
                 'description' => 'nullable|string',
                 'price' => 'required|numeric|gt:0',
                 'city' => 'nullable|string|max:255',
+                'image2' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+                'image3' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+                'image4' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             ]);
 
             // Check if an image is uploaded
@@ -83,6 +97,14 @@ class HistoricalSiteController extends Controller
                 // Upload the new image
                 $imagePath = $request->file('history_image')->store('history_images', 'public');
                 $validatedData['history_image'] = $imagePath;
+            }
+
+            for ($i = 2; $i <= 4; $i++) {
+                $imageKey = 'image' . $i;
+                if ($request->hasFile($imageKey)) {
+                    $imagePath = $request->file($imageKey)->store('history_images', 'public');
+                    $validatedData[$imageKey] = $imagePath;
+                }
             }
 
             $historicalSite->update($validatedData);
@@ -115,5 +137,9 @@ public function HistoricalSites(){
     return view('User.HistoricalSites.view-historicalSite',compact('historical','offers','hotelsOffer'));
 }
 
+public function  showDetails($id){
+   $HistoricalSite=HistoricalSite::where('id',$id)->first();
+    return view('User.HistoricalSites.Information-Historical-site', compact('HistoricalSite'));
+}
 
 }

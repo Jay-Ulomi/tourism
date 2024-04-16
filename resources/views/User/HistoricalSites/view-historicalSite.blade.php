@@ -37,7 +37,7 @@
                 @if ($historical->count() > 0)
                 @foreach ($historical as $history)
                     <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0 pt-5 ">
-                        <div class="media-1">
+                        <div class="media-1" onclick="window.location='{{ route('history', ['id' => $history->id]) }}'">
                             <a href="#" class="d-block mb-3">
                                 @if ($history->history_image)
                                 <img src="{{ asset('storage/' . $history->history_image) }}" alt="Image" class="img-fluid imgsize">

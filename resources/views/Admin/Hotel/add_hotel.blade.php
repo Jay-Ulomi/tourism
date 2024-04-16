@@ -58,32 +58,46 @@
                                         <input type="file" name="hotel_image" class="form-control">
                                     </div>
                                     <div class="form-wrapper">
-                                        <label for="">City</label>
-                                        <input type="text" name="city" class="form-control">
+                                        <label for="">Hotel Image</label>
+                                        <input type="file" name="image2" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-wrapper">
+                                        <label for="">Hotel Image</label>
+                                        <input type="file" name="image3" class="form-control">
+                                    </div>
+                                    <div class="form-wrapper">
+                                        <label for="">Hotel Image</label>
+                                        <input type="file" name="image4" class="form-control">
                                     </div>
                                 </div>
 
-
                                  <div class="form-group">
+                                    <div class="form-wrapper">
+                                        <label for="">City</label>
+                                        <input type="text" name="city" class="form-control">
+                                    </div>
                                     <div class="form-wrapper">
                                     <label for="">Description</label>
                                     <input type="text" name="description" class="form-control">
                                 </div>
-                                    <div class="form-wrapper">
-                                        <label for="">Category</label>
-                                        <select name="category_id" class="form-control">
-                                            <option value="" selected disabled>Select Category</option>
-                                            @foreach ($categories as $category)
-                                                <option value="{{ $category->id }}">{{ $category->category_name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
+
                                 </div>
 
                                 <div class="form-group">
                                     <div class="form-wrapper">
                                     <label for="">Rate</label>
                                     <input type="text" name="rate" class="form-control">
+                                </div>
+                                <div class="form-wrapper">
+                                    <label for="">Category</label>
+                                    <select name="category_id" class="form-control">
+                                        <option value="" selected disabled>Select Category</option>
+                                        @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Add Hotel</button>

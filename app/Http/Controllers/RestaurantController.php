@@ -37,7 +37,10 @@ class RestaurantController extends Controller
         'restaurant_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         'description' => 'nullable|string',
         'city' => 'nullable|string|max:255',
-        'category_id'=>'required'
+        'category_id'=>'required',
+        'image2' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        'image3' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        'image4' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
     ]);
 
 
@@ -46,6 +49,13 @@ class RestaurantController extends Controller
         // Upload the new image
         $imagePath = $request->file('restaurant_image')->store('restaurant_images', 'public');
         $validatedData['restaurant_image'] = $imagePath;
+    }
+    for ($i = 2; $i <= 4; $i++) {
+        $imageKey = 'image' . $i;
+        if ($request->hasFile($imageKey)) {
+            $imagePath = $request->file($imageKey)->store('restaurant_images', 'public');
+            $validatedData[$imageKey] = $imagePath;
+        }
     }
     $restaurant = Restaurant::create($validatedData);
 
@@ -73,7 +83,10 @@ class RestaurantController extends Controller
                 'restaurant_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
                 'description' => 'nullable|string',
                 'city' => 'nullable|string|max:255',
-                'category_id'=>'required'
+                'category_id'=>'required',
+                'image2' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+                'image3' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+                'image4' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             ]);
 
             // Check if an image is uploaded
@@ -81,6 +94,13 @@ class RestaurantController extends Controller
                 // Upload the new image
                 $imagePath = $request->file('restaurant_image')->store('restaurant_images', 'public');
                 $validatedData['restaurant_image'] = $imagePath;
+            }
+            for ($i = 2; $i <= 4; $i++) {
+                $imageKey = 'image' . $i;
+                if ($request->hasFile($imageKey)) {
+                    $imagePath = $request->file($imageKey)->store('restaurant_images', 'public');
+                    $validatedData[$imageKey] = $imagePath;
+                }
             }
             $restaurant->update($validatedData);
 
