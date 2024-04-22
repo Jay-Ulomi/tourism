@@ -143,6 +143,11 @@ class RestaurantController extends Controller
         return view("User.Restaurants.category-restaurant",compact('category','restaurants','offers','hotelsOffer'));
     }
 
+    public function showDetails($id){
+        $Restaurant=Restaurant::where('id',$id)->first();
+        return view('User.Restaurants.Info-Restaurant', compact('Restaurant'));
+    }
+
 
 }
 

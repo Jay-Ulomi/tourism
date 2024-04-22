@@ -53,7 +53,7 @@ use App\Http\Controllers\ProfileImageController;
 
     Route::get('/Info-Historical-Site/{id}',[HistoricalSiteController::class , "showDetails"]) -> name("history");
 
-
+    Route::get('/Info-Restaurant/{id}',[RestaurantController::class , "showDetails"]) -> name("Restaurant-Info");
 
 
 
@@ -85,6 +85,7 @@ Route::middleware(['checkRole:customer'])->group(function () {
         Route::delete('/deleteBooking/{id}', [PlanbookingController::class, 'destroy'])->name('deleteBooking' );
 
         Route::get('/Info-Historical-Site/{id}',[HistoricalSiteController::class , "showDetails"]) -> name("history");
+        Route::get('/Info-Restaurant/{id}',[RestaurantController::class , "showDetails"]) -> name("Restaurant-Info");
 
     });
 

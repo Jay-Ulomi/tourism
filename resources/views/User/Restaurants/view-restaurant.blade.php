@@ -43,7 +43,7 @@
                 @foreach ($restaurants->where('category_id', $category->id) as $restaurant)
                     @if (in_array($restaurant->category_id, [5, 4]) && $count < 4)
                         <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                            <div class="media-1">
+                            <div class="media-1" onclick="window.location='{{ route('Restaurant-Info', ['id' => $restaurant->id]) }}'">
                                 <a href="" class="d-block mb-3">
                                     @if ($restaurant->restaurant_image)
                                         <img src="{{ asset('storage/' . $restaurant->restaurant_image) }}" alt="Image" class="img-fluid imgsize">
@@ -106,7 +106,7 @@
                 @foreach ($restaurants->where('category_id', $category->id) as $restaurant)
                     @if (in_array($restaurant->category_id, [6]) && $count < 4)
                         <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                            <div class="media-1">
+                            <div class="media-1" onclick="window.location='{{ route('Restaurant-Info', ['id' => $restaurant->id]) }}'">
                                 <a href="" class="d-block mb-3">
                                     @if ($restaurant->restaurant_image)
                                         <img src="{{ asset('storage/' . $restaurant->restaurant_image) }}" alt="Image" class="img-fluid imgsize">

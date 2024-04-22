@@ -146,8 +146,8 @@ class HotelController extends Controller
         $bookingHotels = [];
 
         foreach ($users as $user) {
-            $bookingHotel = $user->hotels()->get(); // Retrieve all hotels for the current user
-            $bookingHotels[$user->id] = $bookingHotel; // Store the hotels in an array with the user's ID as key
+            $bookingHotel = $user->hotels()->get();
+            $bookingHotels[$user->id] = $bookingHotel;
         }
 
 

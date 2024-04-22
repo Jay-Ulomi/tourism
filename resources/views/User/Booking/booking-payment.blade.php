@@ -21,7 +21,7 @@
           </div>
         </div>
       </div>
-
+      @include('User.Modal.Information-Payment')
     {{-- <script src="https://use.fontawesome.com/2d1c7583b1.js"></script> --}}
 
     <section class="container">
@@ -91,3 +91,12 @@
     });
 </script>
 
+<script>
+    // Get the modal element
+    const modal = new bootstrap.Modal(document.getElementById('exampleModal'));
+
+    // Open the modal when the page loads
+    window.addEventListener('DOMContentLoaded', function() {
+        modal.show();
+    });
+</script>

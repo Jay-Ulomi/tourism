@@ -37,6 +37,7 @@
                                     <thead>
                                         <tr>
                                             <th scope="col">#</th>
+                                            <th scope="col">User Name</th>
                                             <th scope="col">Hotel Image</th>
                                             <th scope="col">Hotel Name</th>
                                             <th scope="col">Price</th>
@@ -50,6 +51,7 @@
     @foreach ($userHotels as $index => $bookingHotel)
         <tr>
             <th scope="row">{{ $loop->parent->index * $loop->count + $loop->iteration }}</th>
+            <td>{{ $users->find($user_id)->first_name }}</td>
 
             <td>
                 @if ($bookingHotel->hotel_image)
@@ -59,6 +61,7 @@
                 @endif
             </td>
             <td>{{ $bookingHotel->hotel_name }}</td>
+            <td>{{ $bookingHotel->price }}</td>
             <td>{{ $bookingHotel->pivot->check_in_date }}</td>
             <td>{{ $bookingHotel->pivot->check_out_date }}</td>
             <td>{{ $bookingHotel->pivot->booking_status }}</td>

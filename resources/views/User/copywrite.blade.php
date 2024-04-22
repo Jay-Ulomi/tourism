@@ -1,4 +1,4 @@
-<div class="inner dark">
+{{-- <div class="inner dark">
     <div class="container">
         <div class="row text-center">
             <div class="col-md-8 mb-3 mb-md-0 mx-auto">
@@ -16,4 +16,4 @@
 <div class="spinner-border" role="status">
     <span class="sr-only">Loading...</span>
 </div>
-</div>
+</div> --}}

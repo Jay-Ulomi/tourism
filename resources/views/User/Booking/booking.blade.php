@@ -26,7 +26,7 @@
 <!-- Page Content -->
 
 
-
+@include('User.Modal.Information-Payment')
 
 <div class="untree_co-section">
     <div class="container">
@@ -99,7 +99,7 @@
                             <input type="date" name="check_out_date" id="check_out_date" class="form-control" required>
                         </div>
                     </div>
-                    <p><button type="submit" class="btn btn-primary btn-shadow">Booking Now</button></p>
+                    <p><button type="submit" class="btn btn-primary btn-shadow"  id="openModalButton" >Booking Now</button></p>
                 </form>
 
             </div>
@@ -132,6 +132,16 @@
 
 
 @include('User.script')
+
+<script>
+    // Get the modal element
+    const modal = new bootstrap.Modal(document.getElementById('exampleModal'));
+
+    // Open the modal when the page loads
+    window.addEventListener('DOMContentLoaded', function() {
+        modal.show();
+    });
+</script>
 
 
 

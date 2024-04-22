@@ -14,7 +14,7 @@
 
 
 <script src="user/js/custom.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-vyj5p+H2uQp84NJrTExym9WxWlXjz49e/RVRb3cf6pXMqvN7+V2OMb1+NOgWzvTL" crossorigin="anonymous"></script>
 
 
 <!-- Initialize Swiper -->

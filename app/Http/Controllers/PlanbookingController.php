@@ -57,7 +57,8 @@ class PlanbookingController extends Controller
 
 
             // Return a success response
-            return redirect()->route('getcheckout');
+            // return redirect()->route('getcheckout');
+            return back();
 
         } catch (\Exception $e) {
             // Return an error response if an exception occurs
@@ -135,7 +136,7 @@ class PlanbookingController extends Controller
     public function  planBooking(){
         $user=Auth::user() ;
         $planbookings = Planbooking::all();
-      
+
         return view('Admin.Booking.Planning-Booking',compact('planbookings','user'));
     }
 
