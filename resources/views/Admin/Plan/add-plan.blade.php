@@ -59,7 +59,7 @@
                                     </div>
                                     <div class="form-wrapper">
                                         <label for="">Categories</label>
-                                        <textarea name="info" id="info"></textarea>
+                                        <textarea name="info" id="info"class="form-control" style="height: 100px;"></textarea>
                                     </div>
                                 </div>
 

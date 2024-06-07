@@ -67,7 +67,7 @@
             <td>{{ $bookingHotel->pivot->booking_status }}</td>
             <td>
                 <a href="{{ route('admin.edit', $bookingHotel->id) }}" class="icon-link"><i class="fas fa-pencil-alt edit"></i></a>
-                <a href="#" class="delete-link" data-hotel-id="{{ $bookingHotel->id }}">
+                <a href="#" class="delete-link" data-bookinghotel-id="{{ $bookingHotel->id }}">
                     <i class="fas fa-trash-alt color"></i>
                 </a>
             </td>
@@ -106,8 +106,8 @@
                     event.preventDefault();
 
                     // Confirm deletion (optional)
-                    if (confirm('Are you sure you want to delete this hotel?')) {
-                        let hotelId = this.getAttribute('data-hotel-id');
+                    if (confirm('Are you sure you want to delete this booking hotel?')) {
+                        let hotelId = this.getAttribute('data-bookinghotel-id');
                         deleteHotel(hotelId);
                     }
                 });

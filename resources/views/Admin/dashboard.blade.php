@@ -24,7 +24,7 @@
             @include('Admin.navbar')
             <!-- Navbar End -->
 
-
+            @include('Status.Status')
             <!-- Sale & Revenue Start -->
              @include('Admin.saleuser')
             <!-- Sale & Revenue End -->

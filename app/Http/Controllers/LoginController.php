@@ -34,17 +34,29 @@ class LoginController extends Controller
 
         switch ($user->role->name) {
             case 'admin':
-                return redirect()->route('admindashboard');
+                // Retrieve the intended URL from the session
+                $intendedUrl = session('url.intended');
+
+                // If the intended URL is not set or is invalid, use the admindashboard route
+                $redirectRoute = $intendedUrl ? $intendedUrl : route('admindashboard');
+
+                // Clear the intended URL from the session
+                session()->forget('url.intended');
+
+                // Add the message to the session
+                return redirect($redirectRoute)->with('message', 'Successful login');
             case 'customer':
                 // Retrieve the intended URL from the session
                 $intendedUrl = session('url.intended');
+
                 // If the intended URL is not set or is invalid, use the userdashboard route
                 $redirectRoute = $intendedUrl ? $intendedUrl : route('userdashboard');
 
                 // Clear the intended URL from the session
                 session()->forget('url.intended');
 
-                return redirect($redirectRoute);
+                // Add the message to the session
+                return redirect($redirectRoute)->with('message', 'Successful login');
         }
     }
 

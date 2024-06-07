@@ -41,7 +41,7 @@
                     <div class="col-sm-12 col-xl-12">
                         <div class="bg-light rounded h-100 p-4">
                             <h6 class="mb-4">Update Historical Site</h6>
-                            <form action="{{ route('update',$historicalSite->id) }}" method="POST"  enctype="multipart/form-data">
+                            <form action="{{ route('historical-update',$historicalSite->id) }}" method="POST"  enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
                                 <div class="form-group">

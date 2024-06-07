@@ -2,7 +2,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="author" content="Untree.co">
-	<link rel="shortcut icon" href="favicon.png">
+	<link rel="shortcut icon" href="user/images/logo.png">
 
 	<meta name="description" content="" />
 	<meta name="keywords" content="bootstrap, bootstrap4" />
@@ -33,6 +33,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gtEjrD/SeG8OrzF3LDGc7WvXwb25YV3H5O9PBf7gKb8qB9erUjHjMWUovI5DDVcZ" crossorigin="anonymous">
-	<title>Zanzibar Tourism</title>
-   
+	<title>Focus TourTz</title>
+
 </head>

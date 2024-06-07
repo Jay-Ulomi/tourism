@@ -3,19 +3,21 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
-use Illuminate\Mail\Mailables\Content;
-use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
 class PlanbookingConfirmation extends Mailable
 {
     use Queueable, SerializesModels;
+
     public $user;
     public $plan;
     public $planbooking;
 
+    /**
+     * Create a new message instance.
+     */
     public function __construct($user, $plan, $planbooking)
     {
         $this->user = $user;
@@ -24,31 +26,16 @@ class PlanbookingConfirmation extends Mailable
     }
 
     /**
-     * Get the message envelope.
-     */
-    public function envelope(): Envelope
-    {
-        return new Envelope(
-            subject: 'Planbooking Confirmation',
-        );
-    }
-
-    /**
-     * Get the message content definition.
+     * Build the message.
      */
     public function build()
     {
-        return $this->markdown('Email.user-planingBooking')
-                    ->subject('Confirmation for Your Planbooking');
-    }
-
-    /**
-     * Get the attachments for the message.
-     *
-     * @return array<int, \Illuminate\Mail\Mailables\Attachment>
-     */
-    public function attachments(): array
-    {
-        return [];
+        return $this->view('Email.user-planingBooking')
+                    ->subject('Your Plan Booking Confirmation')
+                    ->with([
+                        'user' => $this->user,
+                        'plan' => $this->plan,
+                        'planbooking' => $this->planbooking,
+                    ]);
     }
 }

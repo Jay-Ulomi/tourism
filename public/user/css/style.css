@@ -1,3 +1,6 @@
+
+/* #009CFF
+#ca6702 */
 body {
     font-family: "Inter", sans-serif;
     line-height: 1.5;
@@ -23,18 +26,18 @@ body {
       visibility: visible; }
 
   .bg-primary {
-    background-color: #1A374D !important; }
+    background-color: #009CFF !important; }
 
   .text-black {
     color: #000000 !important; }
 
   a {
-    color: #1A374D;
+    color: #ca6702;
     -webkit-transition: .3s all ease;
     -o-transition: .3s all ease;
     transition: .3s all ease; }
     a:hover {
-      color: #1A374D;
+      color: #ca6702;
       text-decoration: none; }
 
   ::-moz-selection {
@@ -46,12 +49,12 @@ body {
     color: #ffffff; }
 
   .text-primary {
-    color: #1A374D !important; }
+    color: #000000 !important; }
 
   a.text-primary {
-    color: #1A374D !important; }
+    color: #000000 !important; }
     a.text-primary:hover {
-      color: #1A374D !important; }
+      color: #000000 !important; }
 
   h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
     font-family: "Source Serif Pro", serif; }
@@ -68,11 +71,11 @@ body {
       -webkit-box-shadow: none;
       box-shadow: none; }
     .btn.btn-primary {
-      background: #6975ab;
+      background: #009CFF;
       border-color: #1A374D; }
       .btn.btn-primary:hover {
         border-color: #1f425c;
-        background: #6975ab; }
+        background: #009CFF; }
     .btn.btn-outline-white {
       border: 2px solid #ffffff; }
       .btn.btn-outline-white:hover {
@@ -87,7 +90,7 @@ body {
     font-size: 16px;
     height: 45px; }
     .form-control:active, .form-control:focus, .custom-select:active, .custom-select:focus {
-      border-color: #1A374D;
+      border-color: #ca6702;
       -webkit-box-shadow: none;
       box-shadow: none; }
 
@@ -172,6 +175,12 @@ body {
       margin: 0;
       padding: 0;
       font-size: 24px; }
+      .site-nav img {
+        width: 100px;
+        height: 100px;
+        margin-right: 10px;
+        background-color:transparent;
+        }
     .site-nav .site-navigation .site-menu {
       margin-bottom: 0; }
       .site-nav .site-navigation .site-menu > li {
@@ -549,7 +558,7 @@ body {
 
   .hero {
     padding: 7rem 0 10rem 0;
-    background-image: url('../images/zanz12.jpg');
+    background-image: url('../images/zanz10.jpg');
     margin-bottom: 100px;
     background-size: cover;
     background-position: center;
@@ -557,7 +566,7 @@ body {
     .hero.hero-inner {
       padding: 9rem 0 7rem 0;
       margin-bottom: auto;
-      background: #6975ab;
+      background: #009CFF;
 
      }
     .hero h1 {
@@ -763,7 +772,7 @@ body {
       .hotel,.media-1 .price {
         text-align: center;
         font-size: 15px;
-        color: #6975ab;
+        color: #009CFF;
         font-weight: 700;
         position: relative;
         top: -2px;
@@ -881,11 +890,11 @@ body {
       left: -50px; }
       .owl-3-slider .owl-nav .owl-prev:hover {
         left: -65px;
-        color: #6975ab; }
+        color: #009CFF; }
     .owl-3-slider .owl-nav .owl-next {
       right: -50px; }
       .owl-3-slider .owl-nav .owl-next:hover {
-        color: #6975ab;
+        color: #009CFF;
         right: -65px; }
       .owl-3-slider .owl-nav .owl-next span {
         display: inline-block;
@@ -933,7 +942,11 @@ body {
     min-height: calc(50% - 15px);
     top: 0;
     margin-bottom: 30px !important;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25); }
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.feature-1 span{
+   color: #ca6702;
+}
     @media (max-width: 991.98px) {
       .feature-1 {
         display: block !important; } }
@@ -1178,7 +1191,7 @@ body {
       border-radius: 50%; }
 
   .cta-section {
-    background: #6975ab; }
+    background: #009CFF; }
 
   .custom-block {
     margin-bottom: 30px; }
@@ -1270,7 +1283,7 @@ body {
     background: #ccc; }
 
   .control input:checked ~ .control__indicator {
-    background: #6975ab; }
+    background: #009CFF; }
 
   .control:hover input:not([disabled]):checked ~ .control__indicator,
   .control input:checked:focus ~ .control__indicator {
@@ -1364,7 +1377,7 @@ body {
       transform: translate(-50%, -50%);
       width: 50px;
       height: 50px;
-      background: #6975ab;
+      background: #009CFF;
       border-radius: 50%;
       -webkit-transition: .3s all ease;
       -o-transition: .3s all ease;
@@ -1373,7 +1386,7 @@ body {
         position: absolute;
         top: 50%;
         left: 50%;
-        color: #6975ab;
+        color: #009CFF;
         -webkit-transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%); }
@@ -1505,7 +1518,7 @@ body {
           width: 30px;
           height: 30px;
           border-radius: 50%;
-          background: #6975ab;
+          background: #009CFF;
           display: inline-block;
           position: relative;
           color: #ffffff;
@@ -1538,7 +1551,7 @@ body {
         position: absolute;
         content: "";
         font-family: 'icomoon';
-        color: #6975ab; }
+        color: #009CFF; }
       .site-footer ul.quick-info li.email:before {
         content: "\f0e0"; }
       .site-footer ul.quick-info li.phone:before {
@@ -1750,7 +1763,48 @@ body {
     background-color: #4133B7;
   }
 
+  @media (max-width: 768px) {
+    .plan {
+        max-width: 100%;
+        box-shadow: none;
+        padding: 20px;
+        margin: 20px 0;
+    }
 
+    .plan .inner {
+        padding: 15px;
+        padding-top: 30px;
+    }
+
+    .plan .pricing {
+        font-size: 1rem;
+        padding: 0.5em 0.6em;
+    }
+
+    .plan .title {
+        font-size: 1.1rem;
+    }
+
+    .plan .title + * {
+        margin-top: 0.5rem;
+    }
+
+    .plan .features {
+        display: flex;
+        flex-direction: column;
+        margin-left: -40px;
+      }
+
+    .plan .features .icon svg {
+        width: 12px;
+        height: 12px;
+      }
+
+    .plan .button {
+        font-size: 1rem;
+        padding: 0.5em 0.6em;
+    }
+}
 
   .form-group {
     display: flex;
@@ -1938,7 +1992,7 @@ input{
 }
 
 #checkoutNav ul{
-    color: #D5D2DD;
+    color: #000000;
     list-style: none;
     padding: 0;
     text-align: center;
@@ -2001,7 +2055,7 @@ input{
 }
 
 #details dt {
-	color: #D5D2DD;
+	color: #000000;
 	text-transform: uppercase;
 	font-size: 18px;
 	grid-row: 1;
@@ -2021,7 +2075,7 @@ input{
     font-size: 18px;
 }
 
-#checkoutCard ul li input{
+#checkoutCard ul li input select{
     width: 30px;
     height: 30px;
     margin-left: 70px;

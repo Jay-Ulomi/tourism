@@ -20,52 +20,42 @@ class PlanbookingController extends Controller
         return view('planbookings.index', compact('planbookings'));
     }
 
-
     public function planStore(Request $request, $planId)
     {
         try {
-            // Decode the planId if it's encoded
-            $plan_id = $planId;
-
             // Get the authenticated user's ID
-            $user_id = Auth::id();
+            $userId = Auth::id();
 
             // Validate the request data
             $validatedData = $request->validate([
                 'numberOfPeople' => 'required|integer',
-                'totalPrice' => 'required|numeric',
                 'start_at' => 'required|date',
                 'end_at' => 'required|date',
+                'activities' => 'array',
             ]);
 
-            // Assign user_id and plan_id directly
-            $validatedData['user_id'] = $user_id;
-            $validatedData['plan_id'] = $plan_id;
-            $validatedData['booking_status']='pending';
-
-            // Check if the authenticated user is the owner of the plan
-            if ($validatedData['user_id'] != $user_id) {
-                return back()->with(['message' => "You don't have permission to book this plan."], 403);
-            }
+            // Assign additional fields
+            $validatedData['user_id'] = $userId;
+            $validatedData['plan_id'] = $planId;
+            $validatedData['totalPrice'] = 0;
+            $validatedData['booking_status'] = 'pending';
+            $validatedData['activities'] = json_encode($validatedData['activities'] ?? []);
 
             // Create a new plan booking
-            $planbooking=Planbooking::create($validatedData);
+            $planbooking = PlanBooking::create($validatedData);
 
-            // Dispatch the event
-            event(new PlanBookingEvent($user_id, $plan_id, $planbooking));
-
-
+            // Fire the event
+            event(new PlanBookingEvent($planbooking, $planId, $userId ));
 
             // Return a success response
-            // return redirect()->route('getcheckout');
-            return back();
+            return redirect()->route('getcheckout')->with('success', 'Booking created successfully.');
 
         } catch (\Exception $e) {
             // Return an error response if an exception occurs
             return back()->withErrors(['error' => $e->getMessage()])->withInput();
-
         }
     }
+
 
 
     public function edit($id)
@@ -140,6 +130,23 @@ class PlanbookingController extends Controller
         return view('Admin.Booking.Planning-Booking',compact('planbookings','user'));
     }
 
+    public function planinvoice($id)
+        {
+            $user=Auth::user() ;
+            $planbooking = Planbooking::findOrFail($id);
+            return view ('Admin.Invoice.Generate-Invoice', compact('planbooking','user'));
+        }
 
+        public function delete($id)
+    {
+        // Find the plan booking to delete
+        $planbooking = Planbooking::findOrFail($id);
+
+        // Delete the plan booking
+        $planbooking->delete();
+
+        // Redirect back with success message
+        return redirect()->back()->with('messsage', 'Plan booking deleted successfully!');
+    }
 
 }

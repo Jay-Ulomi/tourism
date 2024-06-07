@@ -52,9 +52,7 @@
                             <div class="pt-2">
                                 <div>
                                     <h3><a href="#">{{ $history->history_name }}</a></h3>
-                                    <div class="price ml-auto">
-                                        <span>${{ $history->price }}</span>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>

@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>RegistrationForm_v2 by Colorlib</title>
+    <title>Focus TourTz</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- MATERIAL DESIGN ICONIC FONT -->
@@ -13,7 +13,7 @@
 </head>
 
 <body>
-
+@include('Status.Status')
     <div class="wrapper" style="background-image: url('registration/images/bg-registration-form-2.jpg');">
         <div class="inner">
             <form action="{{ route('userregistration') }}" method="POST">
@@ -69,6 +69,6 @@
             </form>
         </div>
     </div>
-
+@include('User.script')
 </body>
 </html>

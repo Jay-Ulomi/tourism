@@ -33,7 +33,12 @@
 
     @include('User.historicalsite')
 
+    @include('Status.Status')
+
     @include('User.hotel')
+
+    @include('User.Plan')
+
 	@include('User.destination')
 
 

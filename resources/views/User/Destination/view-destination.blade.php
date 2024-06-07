@@ -52,9 +52,6 @@
                             <div class="pt-2">
                                 <div>
                                     <h3><a href="#">{{ $destination->destination_name }}</a></h3>
-                                    <div class="price ml-auto">
-                                        <span>${{ $destination->price }}</span>
-                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -32,7 +32,7 @@
                     <li>Guide Books</li>
                 </ul>
 
-                <p><a href="#" class="btn btn-primary btn-shadow">Get Started</a></p>
+                <p><a href="{{route('view-bookingplan')}}" class="btn btn-primary btn-shadow">Get Started</a></p>
 
 
             </div>

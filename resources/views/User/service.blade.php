@@ -15,7 +15,7 @@
 
                 <div class="feature-1 d-md-flex">
                     <div class="align-self-center">
-                        <span class="flaticon-house display-4 text-primary"></span>
+                        <span class="flaticon-house display-4 "></span>
                         <h3>Beautiful Accommodation</h3>
                         <p class="mb-0">The best place to stay at night are the best and afordable .</p>
                     </div>
@@ -23,7 +23,7 @@
 
                 <div class="feature-1 ">
                     <div class="align-self-center">
-                        <span class="flaticon-restaurant display-4 text-primary"></span>
+                        <span class="flaticon-restaurant display-4 "></span>
                         <h3>Restaurants & Cafe</h3>
                         <p class="mb-0">Best food with high quality and different flavor.</p>
                     </div>
@@ -35,7 +35,7 @@
 
                 <div class="feature-1 d-md-flex">
                     <div class="align-self-center">
-                        <span class="flaticon-mail display-4 text-primary"></span>
+                        <span class="flaticon-mail display-4 "></span>
                         <h3>Easy to Connect</h3>
                         <p class="mb-0">We are very fast to connect our client with different company for ...</p>
                     </div>
@@ -43,7 +43,7 @@
 
                 <div class="feature-1 d-md-flex">
                     <div class="align-self-center">
-                        <span class="flaticon-phone-call display-4 text-primary"></span>
+                        <span class="flaticon-phone-call display-4 "></span>
                         <h3>24/7 Support</h3>
                         <p class="mb-0">We are always there for our clients to ensure safety.</p>
                     </div>

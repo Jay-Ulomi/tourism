@@ -65,5 +65,13 @@ class User extends Authenticatable
         ->withPivot('check_in_date','check_out_date','booking_status');
     }
 
+    public function planbooking(){
+        return $this->hasMany(Planbooking::class);
+    }
+
+    public function invoice(){
+        return $this->hasMany(Invoice::class);
+    }
+
 
 }

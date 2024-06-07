@@ -24,7 +24,7 @@
             @include('Admin.navbar')
             <!-- Navbar End -->
 
-
+            @include('Status.Status')
               <!-- Table Start -->
               <div class="container-fluid pt-4 px-4">
                 <div class="row g-4">
@@ -62,6 +62,9 @@
             <td>{{ $planbooking->end_at }}</td>
             <td>{{ $planbooking->booking_status}}</td>
             <td>
+                <a href="{{ route('planinvoice', ['id' => $planbooking->id]) }}" class="view-link">
+                    <i class="fas fa-eye primary"></i>
+                </a>
 
                 <a href="#" class="delete-link" data-hotel-id="{{ $planbooking->id }}">
                     <i class="fas fa-trash-alt color"></i>
@@ -111,7 +114,7 @@
 
             function deleteHotel(hotelId) {
                 // Send a DELETE request using your preferred method (e.g., fetch, Axios)
-                fetch(`/delete_hotel/${hotelId}`, {
+                fetch(`/delete-Booking-Plan/${hotelId}`, {
                     method: 'DELETE',
                     headers: {
                         'X-CSRF-TOKEN': '{{ csrf_token() }}',

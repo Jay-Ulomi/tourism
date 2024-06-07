@@ -38,12 +38,14 @@ class PlanController extends Controller
             $categories = explode(',', $validatedData['info']);
             $validatedData['info'] = $categories;
 
+
             // dd($validatedData);
             $plan = Plan::create($validatedData);
 
 
             return back()->with('message', 'Plan added successfully!');
         } catch (\Exception $e) {
+            dd($e->getMessage());
             return back()->with('error', 'Error adding plan');
         }
     }

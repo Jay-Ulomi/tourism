@@ -60,7 +60,7 @@
                                                 <td>{{ $historicalsite->price }}</td>
                                                 <td>{{ $historicalsite->city }}</td>
                                                 <td>{{ $historicalsite->description }}</td>
-                                                <td>
+                                                <td> 
                                                     <a href="{{ route('edit',$historicalsite->id) }}" class="icon-link"><i class="fas fa-pencil-alt edit"></i></a>
                                                     <a href="#" class="delete-link" data-historicalsite-id="{{ $historicalsite->id }}">
                                                         <i class="fas fa-trash-alt color"></i>

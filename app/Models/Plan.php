@@ -16,4 +16,9 @@ class Plan extends Model
     protected $casts = [
         'info' => 'array',
     ];
+
+    public function planbooking()
+    {
+        return $this->hasMany(Planbooking::class);
+    }
 }

@@ -35,7 +35,7 @@
 
                                 <span class="pricing">
                                     <span>
-                                        {{ $plan->price }}
+                                        {{-- {{ $plan->price }} --}}
                                     </span>
                                 </span>
                                 <p class="title">{{ $plan->title }}</p>
@@ -75,7 +75,7 @@
 
 
 
-{{-- 
+{{--
     <div class="py-5 cta-section">
         <div class="container">
             <div class="row text-center">

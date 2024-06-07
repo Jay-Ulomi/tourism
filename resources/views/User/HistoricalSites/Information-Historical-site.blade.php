@@ -60,15 +60,6 @@
             <!-- Room Details -->
             <h2 class="section-title mb-4">{{ $HistoricalSite->history_name }}</h2>
             <p>{{ $HistoricalSite->description }}</p>
-            <p>{{ $HistoricalSite->price }}</p>
-            <div>
-                <strong>Price :</strong>
-                <span>  {{ $HistoricalSite->price }} Tsh</span>
-            </div>
-
-
-
-
             </div>
         </div>
     </div>

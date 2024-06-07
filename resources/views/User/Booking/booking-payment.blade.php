@@ -2,40 +2,32 @@
 <html lang="en">
 <base href="/public">
 @include('User.css')
-
+<style>
+    select {
+        width: 100%;
+        height: auto;
+    }
+</style>
 <body>
-
-
-	@include('User.nav')
-
+    @include('User.nav')
 
     <div class="hero hero-inner">
         <div class="container">
-          <div class="row align-items-center">
-            <div class="col-lg-6 mx-auto text-center">
-              <div class="intro-wrap">
-                <h1 class="mb-0">Booking </h1>
-                <p class="text-white">Let make your tripe comfortable. </p>
-              </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6 mx-auto text-center">
+                    <div class="intro-wrap">
+                        <h1 class="mb-0">Booking </h1>
+                        <p class="text-white">Let make your trip comfortable. </p>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-      @include('User.Modal.Information-Payment')
-    {{-- <script src="https://use.fontawesome.com/2d1c7583b1.js"></script> --}}
+    </div>
+    @include('User.Modal.Information-Payment')
 
     <section class="container">
         <section class="content">
-            <article id="checkoutNav" class="shadow">
-                <ul>
-                    @foreach ($plan->info as $category)
-                    <li>
-                        <i class="fa fa-truck" aria-hidden="true"></i>
-                        <p>{{ $category }}</p>
-                    </li>
-                    @endforeach
-                </ul>
-            </article>
+            <article id="checkoutNav" class="shadow"></article>
             <article id="product" class="shadow"><img src="registration/images/p1.jpg" alt="Lunar 2"></article>
             <article id="checkoutCard" class="shadow">
                 <form action="{{ route('planstore', ['planId' => $plan->id]) }}" method="POST" id="checkoutForm">
@@ -43,18 +35,28 @@
                     <div id="details">
                         <dl>
                             <dt>Product</dt>
-                            <dd><input type="hidden" name="title" value="{{ $plan->title }}">{{ $plan->title }}</dd> <!-- Display the product title without an input field -->
+                            <dd><input type="hidden" name="title" value="{{ $plan->title }}">{{ $plan->title }}</dd>
 
                             <dt># People</dt>
-                            <dd><input type="number" name="numberOfPeople" id="numberOfPeople" value="1" onchange="updateTotalPrice()"></dd> <!-- Input field for number of people -->
+                            <dd><input type="number" name="numberOfPeople" id="numberOfPeople" value="1" onchange="updateTotalPrice()"></dd>
 
-                            <!-- Hidden input fields for price and total price -->
-                            <input type="hidden" name="price" id="price" value="{{ $plan->price }}">
-                            <input type="hidden" name="totalPrice" id="totalPrice" value="{{ $plan->price }}">
-
-                            <!-- Display total price dynamically based on the number of people -->
-                            <dt>Total Price</dt>
-                            <dd id="displayTotalPrice">{{ $plan->price }}</dd>
+                            <dt>Add Activities</dt>
+                            <dd>
+                                <select id="activities"  name="activities[]" id="field2" multiple multiselect-search="true" multiselect-select-all="true" multiselect-max-items="1" onchange="console.log(this.selectedOptions)">
+                                    <option value="None">None</option>
+                                    <option value="Mountain climbing [7 days]">Mountain climbing [7 days]</option>
+                                    <option value="Camping">Camping</option>
+                                    <option value="Sky diving">Sky diving</option>
+                                    <option value="Kite surfing">Kite surfing</option>
+                                    <option value="Horse riding">Horse riding</option>
+                                    <option value="Quadbike">Quadbike</option>
+                                    <option value="Dinner & Lunch @ the rock restaurant">Dinner & Lunch @ the rock restaurant</option>
+                                    <option value="Wedding">Wedding</option>
+                                    <option value="Exploring [culture & history]">Exploring [culture & history]</option>
+                                    <option value="Concerts & disco">Concerts & disco</option>
+                                    <option value="Paintball wars (coming soon)">Paintball wars (coming soon)</option>
+                                </select><br>
+                            </dd>
                         </dl>
 
                         <dl>
@@ -70,33 +72,287 @@
                     <input type="submit" value="Check out" id="btnSubmit">
                 </form>
             </article>
+        </section>
+    </section>
 
-            <script>
-                function updateTotalPrice() {
-                    // Get the number of people and the price
-                    var numberOfPeople = parseInt(document.getElementById('numberOfPeople').value);
-                    var price = parseFloat(document.getElementById('price').value);
+    <script>
+        function updateTotalPrice() {
+            // Get the number of people and the price
+            var numberOfPeople = parseInt(document.getElementById('numberOfPeople').value);
+            var price = parseFloat(document.getElementById('price').value);
 
-                    // Calculate the total price
-                    var totalPrice = numberOfPeople * price;
+            // Calculate the total price
+            var totalPrice = numberOfPeople * price;
 
-                    // Update the total price display
-                    document.getElementById('displayTotalPrice').innerText = totalPrice.toFixed(2);
-                    document.getElementById('totalPrice').value = totalPrice.toFixed(2); // Update hidden input field value
-                }
-            </script>
+            // Update the total price display
+            document.getElementById('displayTotalPrice').innerText = totalPrice.toFixed(2);
+            document.getElementById('totalPrice').value = totalPrice.toFixed(2); // Update hidden input field value
+        }
+
+        document.getElementById('checkoutForm').addEventListener('submit', function(event) {
+            const selectedOptions = Array.from(document.getElementById('activitySelect').selectedOptions)
+                                        .map(option => option.value);
+            document.getElementById('activitiesInput').value = selectedOptions.join(', ');
+        });
+
+        // Get the modal element
+        const modal = new bootstrap.Modal(document.getElementById('exampleModal'));
+
+        // Open the modal when the page loads
+        window.addEventListener('DOMContentLoaded', function() {
+            modal.show();
+        });
+    </script>
+
+
+
 <script>
-    document.getElementById('btnSubmit').addEventListener('click', function() {
-        document.getElementById('checkoutForm').submit();
-    });
-</script>
+    var style = document.createElement('style');
+    style.setAttribute("id","multiselect_dropdown_styles");
+    style.innerHTML = `
+    .multiselect-dropdown {
+      display: inline-block;
+      padding: 2px 5px 0px 5px;
+      border-radius: 4px;
+      border: solid 1px #ced4da;
+      background-color: white;
+      position: relative;
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right .75rem center;
+      background-size: 16px 12px;
+    }
+    .multiselect-dropdown span.optext, .multiselect-dropdown span.placeholder {
+      margin-right: 0.5em;
+      margin-bottom: 2px;
+      padding: 1px 0;
+      border-radius: 4px;
+      display: inline-block;
+    }
+    .multiselect-dropdown span.optext {
+      background-color: lightgray;
+      padding: 1px 0.75em;
+    }
+    .multiselect-dropdown span.optext .optdel {
+      float: right;
+      margin: 0 -6px 1px 5px;
+      font-size: 0.7em;
+      margin-top: 2px;
+      cursor: pointer;
+      color: #666;
+    }
+    .multiselect-dropdown span.optext .optdel:hover {
+      color: #c66;
+    }
+    .multiselect-dropdown span.placeholder {
+      color: #ced4da;
+    }
+    .multiselect-dropdown-list-wrapper {
+      box-shadow: gray 0 3px 8px;
+      z-index: 100;
+      padding: 2px;
+      border-radius: 4px;
+      border: solid 1px #ced4da;
+      display: none;
+      margin: -1px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: white;
+    }
+    .multiselect-dropdown-list-wrapper .multiselect-dropdown-search {
+      margin-bottom: 5px;
+    }
+    .multiselect-dropdown-list {
+      padding: 2px;
+      height: 15rem;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+    .multiselect-dropdown-list::-webkit-scrollbar {
+      width: 6px;
+    }
+    .multiselect-dropdown-list::-webkit-scrollbar-thumb {
+      background-color: #bec4ca;
+      border-radius: 3px;
+    }
+    .multiselect-dropdown-list div {
+      padding: 5px;
+    }
+    .multiselect-dropdown-list input {
+      height: 1.15em;
+      width: 1.15em;
+      margin-right: 0.35em;
+    }
+    .multiselect-dropdown-list div.checked {
+    }
+    .multiselect-dropdown-list div:hover {
+      background-color: #ced4da;
+    }
+    .multiselect-dropdown span.maxselected {
+      width: 100%;
+    }
+    .multiselect-dropdown-all-selector {
+      border-bottom: solid 1px #999;
+    }
+    `;
+    document.head.appendChild(style);
 
-<script>
-    // Get the modal element
-    const modal = new bootstrap.Modal(document.getElementById('exampleModal'));
+    function MultiselectDropdown(options) {
+      var config = {
+        search: true,
+        height: '15rem',
+        placeholder: 'select',
+        txtSelected: 'selected',
+        txtAll: 'All',
+        txtRemove: 'Remove',
+        txtSearch: 'search',
+        ...options
+      };
+      function newEl(tag, attrs) {
+        var e = document.createElement(tag);
+        if (attrs !== undefined) Object.keys(attrs).forEach(k => {
+          if (k === 'class') {
+            Array.isArray(attrs[k]) ? attrs[k].forEach(o => o !== '' ? e.classList.add(o) : 0) : (attrs[k] !== '' ? e.classList.add(attrs[k]) : 0)
+          } else if (k === 'style') {
+            Object.keys(attrs[k]).forEach(ks => {
+              e.style[ks] = attrs[k][ks];
+            });
+          } else if (k === 'text') {
+            attrs[k] === '' ? e.innerHTML = '&nbsp;' : e.innerText = attrs[k]
+          } else e[k] = attrs[k];
+        });
+        return e;
+      }
 
-    // Open the modal when the page loads
-    window.addEventListener('DOMContentLoaded', function() {
-        modal.show();
+      document.querySelectorAll("select[multiple]").forEach((el, k) => {
+        var div = newEl('div', { class: 'multiselect-dropdown', style: { width: config.style?.width ?? el.clientWidth + 'px', padding: config.style?.padding ?? '' } });
+        el.style.display = 'none';
+        el.parentNode.insertBefore(div, el.nextSibling);
+        var listWrap = newEl('div', { class: 'multiselect-dropdown-list-wrapper' });
+        var list = newEl('div', { class: 'multiselect-dropdown-list', style: { height: config.height } });
+        var search = newEl('input', { class: ['multiselect-dropdown-search'].concat([config.searchInput?.class ?? 'form-control']), style: { width: '100%', display: el.attributes['multiselect-search']?.value === 'true' ? 'block' : 'none' }, placeholder: config.txtSearch });
+        listWrap.appendChild(search);
+        div.appendChild(listWrap);
+        listWrap.appendChild(list);
+
+        el.loadOptions = () => {
+          list.innerHTML = '';
+
+          if (el.attributes['multiselect-select-all']?.value == 'true') {
+            var op = newEl('div', { class: 'multiselect-dropdown-all-selector' })
+            var ic = newEl('input', { type: 'checkbox' });
+            op.appendChild(ic);
+            op.appendChild(newEl('label', { text: config.txtAll }));
+
+            op.addEventListener('click', () => {
+              op.classList.toggle('checked');
+              op.querySelector("input").checked = !op.querySelector("input").checked;
+
+              var ch = op.querySelector("input").checked;
+              list.querySelectorAll(":scope > div:not(.multiselect-dropdown-all-selector)")
+                .forEach(i => { if (i.style.display !== 'none') { i.querySelector("input").checked = ch; i.optEl.selected = ch } });
+
+              el.dispatchEvent(new Event('change'));
+            });
+            ic.addEventListener('click', (ev) => {
+              ic.checked = !ic.checked;
+            });
+            el.addEventListener('change', (ev) => {
+              let itms = Array.from(list.querySelectorAll(":scope > div:not(.multiselect-dropdown-all-selector)")).filter(e => e.style.display !== 'none')
+              let existsNotSelected = itms.find(i => !i.querySelector("input").checked);
+              if (ic.checked && existsNotSelected) ic.checked = false;
+              else if (ic.checked == false && existsNotSelected === undefined) ic.checked = true;
+            });
+
+            list.appendChild(op);
+          }
+
+          Array.from(el.options).map(o => {
+            var op = newEl('div', { class: o.selected ? 'checked' : '', optEl: o })
+            var ic = newEl('input', { type: 'checkbox', checked: o.selected });
+            op.appendChild(ic);
+            op.appendChild(newEl('label', { text: o.text }));
+
+            op.addEventListener('click', () => {
+              op.classList.toggle('checked');
+              op.querySelector("input").checked = !op.querySelector("input").checked;
+              op.optEl.selected = !!!op.optEl.selected;
+              el.dispatchEvent(new Event('change'));
+            });
+            ic.addEventListener('click', (ev) => {
+              ic.checked = !ic.checked;
+            });
+            o.listitemEl = op;
+            list.appendChild(op);
+          });
+          div.listEl = listWrap;
+
+          div.refresh = () => {
+            div.querySelectorAll('span.optext, span.placeholder').forEach(t => div.removeChild(t));
+            var sels = Array.from(el.selectedOptions);
+            if (sels.length > (el.attributes['multiselect-max-items']?.value ?? 5)) {
+              div.appendChild(newEl('span', { class: ['optext', 'maxselected'], text: sels.length + ' ' + config.txtSelected }));
+            } else {
+              sels.map(x => {
+                var c = newEl('span', { class: 'optext', text: x.text, srcOption: x });
+                if ((el.attributes['multiselect-hide-x']?.value !== 'true'))
+                  c.appendChild(newEl('span', { class: 'optdel', text: '🗙', title: config.txtRemove, onclick: (ev) => { c.srcOption.listitemEl.dispatchEvent(new Event('click')); div.refresh(); ev.stopPropagation(); } }));
+
+                div.appendChild(c);
+              });
+            }
+            if (0 == el.selectedOptions.length) div.appendChild(newEl('span', { class: 'placeholder', text: el.attributes['placeholder']?.value ?? config.placeholder }));
+          };
+          div.refresh();
+        }
+        el.loadOptions();
+
+        search.addEventListener('input', () => {
+          list.querySelectorAll(":scope div:not(.multiselect-dropdown-all-selector)").forEach(d => {
+            var txt = d.querySelector("label").innerText.toUpperCase();
+            d.style.display = txt.includes(search.value.toUpperCase()) ? 'block' : 'none';
+          });
+        });
+
+        div.addEventListener('click', () => {
+          div.listEl.style.display = 'block';
+          search.focus();
+          search.select();
+        });
+
+        document.addEventListener('click', function (event) {
+          if (!div.contains(event.target)) {
+            listWrap.style.display = 'none';
+            div.refresh();
+          }
+        });
+      });
+    }
+
+    window.addEventListener('load', () => {
+      MultiselectDropdown(window.MultiselectDropdownOptions);
     });
+
+    function submitForm() {
+        const selectElement = document.getElementById('activities');
+        const selectedOptions = Array.from(selectElement.selectedOptions).map(option => option.value);
+
+        console.log('Selected activities:', selectedOptions);
+        alert('Selected activities: ' + selectedOptions.join(', '));
+
+        // You can now send selectedOptions array to the server or handle it as needed
+        // Example: send it via fetch to the server
+        // fetch('/submit', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify({ activities: selectedOptions }),
+        // })
+        // .then(response => response.json())
+        // .then(data => console.log('Success:', data))
+        // .catch(error => console.error('Error:', error));
+    }
 </script>

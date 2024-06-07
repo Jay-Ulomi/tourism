@@ -10,7 +10,9 @@
 <nav class="site-nav">
     <div class="container">
         <div class="site-navigation">
-            <a href="index.html" class="logo m-0">Zanz <span class="text-primary">.</span></a>
+            <a href="index.html" class="logo m-0">
+                <img src="user/images/logo1.png" alt="" srcset="">
+                    </a>
 
             <ul class="js-clone-nav d-none d-lg-inline-block text-left site-menu float-right">
                 <li class="active"><a href="{{ route('index') }}">Home</a></li>

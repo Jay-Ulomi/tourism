@@ -1,7 +1,7 @@
 <div class="sidebar pe-4 pb-3">
     <nav class="navbar bg-light navbar-light">
-        <a href="index.html" class="navbar-brand mx-4 mb-3">
-            <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>ADMIN</h3>
+        <a href="{{route('admindashboard')}}" class="navbar-brand mx-4 mb-3" >
+            <img src="user/images/logo1.png" alt="" srcset="" style="width: 100px; margin-right:10px;">
         </a>
         <div class="d-flex align-items-center ms-4 mb-4">
             <div class="position-relative">
@@ -128,6 +128,16 @@
                         <i class="fa fa-eye me-2" ></i>Planning Booking </a>
                     <a href="{{ route('hotelBooking') }}" class="dropdown-item">
                         <i class="fa fa-eye me-2" ></i>Hotel Booking </a>
+
+                </div>
+            </div>
+
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-book me-2"></i>Invoice</a>
+                <div class="dropdown-menu bg-transparent border-0">
+                    <a href="{{ route('view-invoice') }}" class="dropdown-item">
+                        <i class="fa fa-eye me-2" ></i>View Invoice</a>
+
 
                 </div>
             </div>

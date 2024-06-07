@@ -5,15 +5,17 @@ namespace App\Listeners;
 use App\Events\PlanBookingEvent;
 use App\Mail\PlanbookingConfirmation;
 use App\Mail\ServicePlanbookingConfirmation;
-use App\Mail\UserBookingConfirmation;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Facades\Mail;
 use App\Models\User;
 use App\Models\Plan;
 use App\Models\PlanBooking;
-class SendPlanBookingEmail
+
+class SendPlanBookingEmail implements ShouldQueue
 {
+    use InteractsWithQueue;
+
     /**
      * Create the event listener.
      */
@@ -27,19 +29,29 @@ class SendPlanBookingEmail
      */
     public function handle(PlanBookingEvent $event)
     {
-        $userId = $event->userId;
-        $planId = $event->planId;
-        $planbooking = $event->planbooking;
+        $planbooking = PlanBooking::find($event->planbooking->id);
 
-        $user = User::find($userId);
-        $plan = Plan::find($planId);
+        if (!$planbooking) {
+            // Log an error or handle the case where the plan booking is not found
+            return back()->with("PlanBooking not found for PlanBookingEvent: planbooking_id={$event->planbooking->id}");
 
-        // Send email to the user
-        Mail::to($user->email)->send(new PlanbookingConfirmation($user, $plan, $planbooking));
+        }
 
-        // Send email to the hotel
-        // Mail::to($plan->hotel->email)->send(new HotelBookingNotification($user, $plan, $booking));
+        $user = $planbooking->user;
+        $plan = $planbooking->plan;
 
-        // Send email to the service provider
-        Mail::to('ulomijay160@gmail.com')->send(new ServicePlanbookingConfirmation($user, $plan, $planbooking));    }
+        if ($user && $plan) {
+            // Send email to the user
+            Mail::to($user->email)->send(new PlanbookingConfirmation($user, $plan, $planbooking));
+
+            // Assuming the plan has an associated service provider email
+            $serviceProviderEmail = $plan->service_provider_email ?? 'ulomijay160@gmail.com';
+
+            // Send email to the service provider
+            Mail::to($serviceProviderEmail)->send(new ServicePlanbookingConfirmation($user, $plan, $planbooking));
+        } else {
+            // Log an error or handle the case where user or plan is not found
+            return back()->with( 'error',("User or Plan not found for PlanBookingEvent: user_id={$user}, plan_id={$plan}"));
+        }
+    }
 }

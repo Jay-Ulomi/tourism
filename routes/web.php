@@ -14,6 +14,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\CategoryOfferController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\PlanbookingController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\PlanController;
@@ -61,6 +62,7 @@ use App\Http\Controllers\ProfileImageController;
 Route::middleware(['checkRole:customer'])->group(function () {
     Route::middleware(['auth'])->group(function () {
         Route::get('index', [HomeController::class, 'Home'])->name('userdashboard');
+        
         Route::get('/user-bookings/{id}', [BookingController::class, 'index'])->name('user-bookings');
         Route::get('/info-plan', [BookingController::class, 'info_plan'])->name('info-plan');
         Route::get('/getHotelNames', [BookingController::class, 'getHotelNames'])->name('getHotelNames');
@@ -68,6 +70,7 @@ Route::middleware(['checkRole:customer'])->group(function () {
         Route::get('/payment/{id}', [BookingController::class, 'payment'])->name('payment');
         Route::get('/getcheckout', [BookingController::class, 'getcheckout'])->name('getcheckout');
         Route::post('/checkout', [BookingController::class, 'checkout'])->name('checkout');
+
         Route::get('/profile', [HomeController::class, 'profile'])->name('profile');
         Route::post('/user_bookings/{userId}/{id}', [BookingController::class, 'store'])->name('hotel-booking');
         Route::get('/user/bookings/{id}', [BookingController::class, 'show']);
@@ -123,8 +126,8 @@ Route::middleware(['auth', 'checkRole:admin'])->group(function () {
     Route::post('/add_history', [HistoricalSiteController::class, 'store'])->name('add_history');
     Route::get('/view_historicalsite',[HistoricalSiteController::class,'showHistory'])->name('view_historicalsite');
     Route::get('/admin/historical-sites/{id}', [HistoricalSiteController::class, 'show']);
-    Route::get('edit/{id}',[HistoricalSiteController::class,'edit'])->name('edit');
-    Route::put('/update-historical-sites/{id}', [HistoricalSiteController::class, 'update'])->name('update');
+    Route::get('Historical-Site-Edit/{id}',[HistoricalSiteController::class,'edit'])->name('edit');
+    Route::put('/update-historical-sites/{id}', [HistoricalSiteController::class, 'update'])->name('historical-update');
     Route::delete('/delete_history/{id}', [HistoricalSiteController::class, 'destroy'])->name('delete_history');
 
     Route::get('/admin-galleries', [GalleryController::class, 'index'])->name('addgallery');
@@ -181,4 +184,14 @@ Route::middleware(['auth', 'checkRole:admin'])->group(function () {
 
 
     Route::get('/planBooking',[PlanbookingController::class,'planBooking'])->name( 'planBooking' );
+    Route::get('/planBooking/{id}',[PlanbookingController::class,'planinvoice'])->name( 'planinvoice' );
+    Route::get('/plan-Booking/{id}',[PlanbookingController::class,'show'])->name( 'plan-invoice' );
+    Route::delete('/delete-Booking-Plan/{id}',[PlanbookingController::class,'delete'])->name('delete-Booking');
+
+    Route::put('/plan-Booking/{id}',[InvoiceController::class,'createInvoice'])->name( 'plan-invoice' );
+    Route::delete('/delete-Booking/{id}',[InvoiceController::class,'destroy'])->name( 'delete-invoice' );
+    Route::get('/view-invoice',[InvoiceController::class,'showInvoice'])->name( 'view-invoice' );
+    // Route::get('/view-invoice/{id}',[InvoiceController::class,'show'])->name( 'view-invoice' );
+    Route::get('/invoice-paid/{id}', [InvoiceController::class, 'markAsPaid'])->name('invoice-paid');
+
 });

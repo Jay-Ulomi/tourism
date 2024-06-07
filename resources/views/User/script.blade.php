@@ -1,3 +1,4 @@
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="user/js/jquery-3.4.1.min.js"></script>
 <script src="user/js/popper.min.js"></script>
