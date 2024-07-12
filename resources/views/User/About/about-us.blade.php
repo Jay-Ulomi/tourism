@@ -30,15 +30,15 @@
       <div class="row">
         <div class="col-lg-7">
           <div class="owl-single dots-absolute owl-carousel">
-            <img src="user/images/slider-1.jpg" alt="Free HTML Template by Untree.co" class="img-fluid rounded-20">
-            <img src="user/images/slider-2.jpg" alt="Free HTML Template by Untree.co" class="img-fluid rounded-20">
-            <img src="user/images/slider-3.jpg" alt="Free HTML Template by Untree.co" class="img-fluid rounded-20">
-            <img src="user/images/slider-4.jpg" alt="Free HTML Template by Untree.co" class="img-fluid rounded-20">
-            <img src="user/images/slider-5.jpg" alt="Free HTML Template by Untree.co" class="img-fluid rounded-20">
+            <img src="user/images/1.jpg" alt="Free HTML Template by Untree.co" class="img-fluid rounded-20">
+            <img src="user/images/2.jpg" alt="Free HTML Template by Untree.co" class="img-fluid rounded-20">
+            <img src="user/images/3.jpg" alt="Free HTML Template by Untree.co" class="img-fluid rounded-20">
+            <img src="user/images/4.jpg" alt="Free HTML Template by Untree.co" class="img-fluid rounded-20">
+            <img src="user/images/7.jpg" alt="Free HTML Template by Untree.co" class="img-fluid rounded-20">
           </div>
         </div>
         <div class="col-lg-5 pl-lg-5 ml-auto">
-          <h2 class="section-title mb-4">About Tours</h2>
+          <h2 class="section-title mb-4">About  FocusTourTz</h2>
           <p>At Zanz, we understand that the journey is just as important as the destination.
             That's why we've made it our mission to redefine the way you experience travel.
             From the moment you set foot in your destination to the time you bid it farewell,

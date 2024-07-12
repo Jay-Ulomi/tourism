@@ -18,6 +18,10 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-vyj5p+H2uQp84NJrTExym9WxWlXjz49e/RVRb3cf6pXMqvN7+V2OMb1+NOgWzvTL" crossorigin="anonymous"></script>
 
 
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.umd.min.js"
+></script>
 <!-- Initialize Swiper -->
 <script>
     document.addEventListener('DOMContentLoaded', function () {

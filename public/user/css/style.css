@@ -1806,37 +1806,7 @@ body {
     }
 }
 
-  .form-group {
-    display: flex;
-  }
 
-  .form-group .form-wrapper {
-    width: 50%;
-  }
-
-  .form-group .form-wrapper:first-child {
-    margin-right: 15px;
-  }
-
-  .form-wrapper {
-    margin-bottom: 10px;
-  }
-
-  .form-wrapper label {
-    margin-bottom: 9px;
-    display: block;
-  }
-
-  .form-control {
-    border: 1px solid #ccc;
-    display: block;
-    width: 80%;
-    height: 30px;
-    padding: 0 20px;
-    border-radius: 20px;
-    font-family: "Muli-Bold";
-    background: none;
-  }
 
 /* =========================profile======================================= */
 .person-icon {
@@ -2320,4 +2290,113 @@ If the elements were spans instead of inputs this wouldn't be necessary.
     font-size: 16px;
     line-height: 1.6;
     color: #666;
+}
+
+/*
+Review  */
+
+
+
+.review {
+    display: flex;
+    align-items: center;
+    /* background-color: #f9f9f9; */
+    padding: 20px;
+    border-radius: 5px;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+    margin-bottom: 20px;
+}
+
+.review img {
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.review-details {
+    flex: 1;
+}
+
+.review strong {
+    color: #333;
+    font-size: 1.2em;
+}
+
+.review p {
+    color: #666;
+    margin-top: 10px;
+}
+
+.star-rating {
+    color: #ca6702;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+}
+
+.rounded-circle {
+    border-radius: 50%;
+    margin-top: 10px;
+}
+
+.shadow-1 {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.untree_co-section {
+    padding: 50px 0;
+}
+
+.load-more {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.load-more button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.load-more button:hover {
+    background-color: #0056b3;
 }

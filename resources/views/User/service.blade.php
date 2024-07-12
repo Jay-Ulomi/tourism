@@ -3,7 +3,7 @@
         <div class="row mb-5 justify-content-center">
             <div class="col-lg-6 text-center">
                 <h2 class="section-title text-center mb-3">Our Services</h2>
-                <p>We are best in provide the best service to our client </p>
+                <p>We pride ourselves on delivering exceptional service to our clients, ensuring their needs are met with professionalism, efficiency, and a personalized touch.</p>
             </div>
         </div>
         <div class="row align-items-stretch">
@@ -17,7 +17,9 @@
                     <div class="align-self-center">
                         <span class="flaticon-house display-4 "></span>
                         <h3>Beautiful Accommodation</h3>
-                        <p class="mb-0">The best place to stay at night are the best and afordable .</p>
+                        <p class="mb-0">
+                            The best places to stay at night are the best and affordable.
+                            </p>
                     </div>
                 </div>
 
@@ -25,7 +27,9 @@
                     <div class="align-self-center">
                         <span class="flaticon-restaurant display-4 "></span>
                         <h3>Restaurants & Cafe</h3>
-                        <p class="mb-0">Best food with high quality and different flavor.</p>
+                        <p class="mb-0">
+                            Best food with high quality and different flavour.
+                            </p>
                     </div>
                 </div>
 

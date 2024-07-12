@@ -1,6 +1,38 @@
 <!doctype html>
 <html lang="en">
-{{-- <base href="/public"> --}}
+<style>
+    .form-group {
+    display: flex;
+  }
+
+  .form-group .form-wrapper {
+    width: 50%;
+  }
+
+  .form-group .form-wrapper:first-child {
+    margin-right: 15px;
+  }
+
+  .form-wrapper {
+    margin-bottom: 10px;
+  }
+
+  .form-wrapper label {
+    margin-bottom: 9px;
+    display: block;
+  }
+
+  .form-control {
+    border: 1px solid #ccc;
+    display: block;
+    width: 80%;
+    height: 30px;
+    padding: 0 20px;
+    border-radius: 20px;
+    font-family: "Muli-Bold";
+    background: none;
+  }
+</style>
 
 @include('User.css')
 <!-- Add this in your HTML head section -->
@@ -102,6 +134,7 @@
                 <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
                 <li><a data-toggle="tab" href="#messages">Plan Booking</a></li>
                 <li><a data-toggle="tab" href="#settings">Hotel Booking</a></li>
+                <li><a data-toggle="tab" href="#review">Add Review</a></li>
               </ul>
 
 
@@ -292,6 +325,63 @@
                       </div>
               	</form>
               </div>
+
+              <div class="tab-pane " id="review">
+                <hr>
+                  <form class="form" action="{{route('reviews.store')}}" method="post" id="registrationForm">
+                    @csrf
+                      <div class="form-group">
+
+                          <div class="col-xs-6">
+                              <label for="first_name"><h4>First name</h4></label>
+                              <input type="text" class="form-control" name="first_name" value="{{ $profile->first_name }}" id="first_name" placeholder="first name" title="enter your first name if any.">
+                          </div>
+
+
+                          <div class="col-xs-6">
+                            <label for="last_name"><h4>Last name</h4></label>
+                              <input type="text" class="form-control" name="last_name" value="{{ $profile->last_name }}" id="last_name" placeholder="last name" title="enter your last name if any.">
+                          </div>
+                      </div>
+
+                      <div class="form-group">
+
+                          <div class="col-xs-6">
+                              <label for="phone"><h4>Title</h4></label>
+                              <input type="text" class="form-control" name="title" id="phone" placeholder="Enter Title" title="enter your Title  if any.">
+                          </div>
+
+                          <div class="col-xs-6">
+                          <label for="rating"><h4>Star</h4></label>
+                          <select name="rating" id="rating"  class="form-control">
+                            <option value="">Select</option>
+                            <option value="1">1 (One)</option>
+                            <option value="2">2 (Two)</option>
+                            <option value="3">3 (Three)</option>
+                            <option value="4">4 (Four)</option>
+                            <option value="5">5 (Five)</option>
+                          </select>
+                      </div>
+                      </div>
+                      <div class="form-group">
+
+                          <div class="col-xs-6">
+                              <label for="email"><h4>Description</h4></label>
+                              <textarea type="text" class="form-control" name="comment"   id="nationality" placeholder="Description" ></textarea>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                           <div class="col-xs-12">
+                                <br>
+                              	<button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+
+                            </div>
+                      </div>
+              	</form>
+
+              <hr>
+
+             </div>
 
               </div><!--/tab-pane-->
           </div><!--/tab-content-->

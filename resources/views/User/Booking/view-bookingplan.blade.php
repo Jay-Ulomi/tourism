@@ -8,6 +8,7 @@
 
 	@include('User.nav')
 
+    @include("Status.Status")
 
 
   <div class="hero hero-inner">
@@ -75,18 +76,20 @@
 
 
 
-{{--
-    <div class="py-5 cta-section">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-md-12">
-                    <h2 class="mb-2 text-white">You can customize your own Plan </h2>
-                    <p class="mb-4 lead text-white text-white-opacity">You can select everything that you need in your tour </p>
-                    <p class="mb-0"><a href="{{ route('info-plan') }}" class="btn btn-outline-white text-white btn-md font-weight-bold">Start Planning Now</a></a></p>
-                </div>
+
+<div class="py-5 cta-section">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-12">
+                <h2 class="mb-2 text-white">You can contact us on WhatsApp</h2>
+                <p class="mb-4 lead text-white text-white-opacity">Chat with us for more information</p>
+                <p class="mb-0">
+                    <a href="https://wa.me/255712676783?text=Hi, I need more information." class="btn btn-outline-white text-white btn-md font-weight-bold">Chat Now</a>
+                </p>
             </div>
         </div>
-    </div> --}}
+    </div>
+</div>
 
 
 

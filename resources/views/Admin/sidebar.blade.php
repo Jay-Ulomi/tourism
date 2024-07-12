@@ -111,12 +111,23 @@
             </div>
 
             <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-map-marker me-2"></i>Plan</a>
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-notes"></i>Plan</a>
                 <div class="dropdown-menu bg-transparent border-0">
                     <a href="{{ route('plans.create') }}" class="dropdown-item">
                         <i class="fa fa-plus-circle me-2"></i>  Add Plan </a>
                     <a href="{{ route('view-admin-destination') }}" class="dropdown-item">
                         <i class="fa fa-eye me-2" ></i>View Plan </a>
+
+                </div>
+            </div>
+
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-map-marker me-2"></i>Activities</a>
+                <div class="dropdown-menu bg-transparent border-0">
+                    <a href="{{ route('add-activities') }}" class="dropdown-item">
+                        <i class="fa fa-plus-circle me-2"></i>  Add Activity </a>
+                    <a href="{{ route('activities.index') }}" class="dropdown-item">
+                        <i class="fa fa-eye me-2" ></i>View Activities </a>
 
                 </div>
             </div>

@@ -50,9 +50,11 @@
     @include('User.food')
 
     @include('User.activity')
+
     @include('User.action')
 
-
+    @include('User.Review.View-Review')
+    
     @include('User.video')
 
 

@@ -17,7 +17,7 @@
             <div class="col-lg-5">
                 <h2 class="section-title text-left mb-4">Take a look at Tour Video</h2>
                 <p>Let see the beautiful of Zanzibar </p>
-                <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                <p class="mb-4"></p>
 
                 <ul class="list-unstyled two-col clearfix">
                     <li>Outdoor recreation activities</li>
@@ -32,7 +32,7 @@
                     <li>Guide Books</li>
                 </ul>
 
-                <p><a href="{{route('view-bookingplan')}}" class="btn btn-primary btn-shadow">Get Started</a></p>
+                <p><a href="https://wa.me/255712676783?text=Hi, I need more information." class="btn btn-primary btn-shadow">Get Started</a></p>
 
 
             </div>

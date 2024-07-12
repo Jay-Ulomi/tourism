@@ -12,7 +12,7 @@
         <div class="row">
             @foreach ($hotelsOffer as $hotel)
                 <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                    <div class="hotel position-relative">
+                    <div class="hotel position-relative ">
                         <a href="{{ route('user-bookings',$hotel->id) }}" class="d-block mb-3">
                             @if ($hotel->hotel_image)
                                 <img src="{{ asset('storage/' . $hotel->hotel_image) }}" alt="Image" class="img-fluid imgsize">

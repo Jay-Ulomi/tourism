@@ -19,7 +19,7 @@ class InvoiceController extends Controller
         $validateData = $request->validate([
             'totalPrice' => 'required',
         ]);
-        $validateData['booking_status'] = 'PAID';
+
 
         $planbooking->update($validateData);
 
@@ -47,10 +47,12 @@ class InvoiceController extends Controller
     public function markAsPaid($id)
     {
         $invoice = Invoice::findOrFail($id);
+
         $invoice->update(['status' => 'paid']);
 
         $planbooking = Planbooking::findOrFail($invoice->planbooking_id);
-
+        
+        $planbooking->update(['booking_status'=> 'PAID']) ;
         // Send the email
         Mail::to($planbooking->user->email)->send(new PlanPaidInvoice($invoice, $planbooking));
 

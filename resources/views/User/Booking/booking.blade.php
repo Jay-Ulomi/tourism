@@ -46,17 +46,7 @@
                 </div>
             </div>
             <div class="col-lg-5 pl-lg-5 ml-auto">
-                @if(session()->has('message'))
-                <div class="alert alert-success">
-                    {{ session('message') }}
-                </div>
-            @endif
-
-            @if(session()->has('error'))
-                <div class="alert alert-danger">
-                    {{ session('error') }}
-                </div>
-            @endif
+                @include("Status.Status")
             <!-- Room Details -->
             <h2 class="section-title mb-4">{{ $hotel->hotel_name }}</h2>
             <p>{{ $hotel->description }}</p>

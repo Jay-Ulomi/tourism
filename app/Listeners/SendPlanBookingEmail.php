@@ -47,8 +47,12 @@ class SendPlanBookingEmail implements ShouldQueue
             // Assuming the plan has an associated service provider email
             $serviceProviderEmail = $plan->service_provider_email ?? 'ulomijay160@gmail.com';
 
-            // Send email to the service provider
-            Mail::to($serviceProviderEmail)->send(new ServicePlanbookingConfirmation($user, $plan, $planbooking));
+            // Email addresses to send the confirmation
+            $emailRecipients = [$serviceProviderEmail, 'nicksfrumence@gmail.com'];
+
+            // Send email to the service provider and the additional email
+            Mail::to($emailRecipients)->send(new ServicePlanbookingConfirmation($user, $plan, $planbooking));
+
         } else {
             // Log an error or handle the case where user or plan is not found
             return back()->with( 'error',("User or Plan not found for PlanBookingEvent: user_id={$user}, plan_id={$plan}"));

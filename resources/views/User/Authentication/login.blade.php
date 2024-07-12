@@ -35,6 +35,12 @@
                         <span class="checkmark"></span>
                     </label>
                 </div>
+                <br>
+                <div class="checkbox">
+                    <label>
+                        <span >I do not have account <a href="{{route('register')}}">Register here!</a></span>
+                    </label>
+                </div>
                 <button type="submit">Login</button>
             </form>
         </div>

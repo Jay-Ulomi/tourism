@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Activity;
 use App\Models\Plan;
 use App\Models\User;
 use App\Models\Hotel;
@@ -13,6 +14,7 @@ use App\Models\Planbooking;
 use App\Models\ProfileImage;
 use Illuminate\Http\Request;
 use App\Models\HistoricalSite;
+use App\Models\WebsiteReview;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
@@ -31,7 +33,10 @@ class HomeController extends Controller
         $historicalSites=HistoricalSite::take(5)->get();
         $restaurants=Restaurant::all();
         $categories=Category::all();
-        return view('User.index', compact('destinations', 'user','offers','hotelsOffer','historicalSites','categories','restaurants'));
+        $activities=Activity::take(8)->get();
+        $webreviews=WebsiteReview::all();
+        return view('User.index',
+        compact('destinations', 'user','offers','hotelsOffer','historicalSites','categories','restaurants','activities','webreviews'));
     }
 
 

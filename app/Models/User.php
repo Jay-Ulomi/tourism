@@ -73,5 +73,22 @@ class User extends Authenticatable
         return $this->hasMany(Invoice::class);
     }
 
+    public function webReviews()
+    {
+        return $this->hasMany(WebsiteReview::class);
+    }
+
+    public function review()
+    {
+        return $this->hasMany(Review::class);
+    }
+
+
+    public function profileimage()
+    {
+        return $this->hasOne(ProfileImage::class);
+    }
+
+
 
 }

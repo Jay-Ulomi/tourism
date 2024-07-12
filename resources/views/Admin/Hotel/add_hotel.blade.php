@@ -20,20 +20,8 @@
         <!-- Content Start -->
         <div class="content">
             <!-- Navbar Start -->
-
             @include('Admin.navbar')
-            <!-- Navbar End -->
-            @if(session()->has('message'))
-            <div class="alert alert-success">
-                {{ session('message') }}
-            </div>
-        @endif
-
-        @if(session()->has('error'))
-            <div class="alert alert-danger">
-                {{ session('error') }}
-            </div>
-        @endif
+         @include('Status.Status')
              <!-- Form Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="row g-4">

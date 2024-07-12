@@ -10,7 +10,7 @@
 <nav class="site-nav">
     <div class="container">
         <div class="site-navigation">
-            <a href="index.html" class="logo m-0">
+            <a href="{{route('index')}}" class="logo m-0">
                 <img src="user/images/logo1.png" alt="" srcset="">
                     </a>
 
@@ -19,6 +19,7 @@
                 <li><a href="services.html">Services</a></li>
                 <li><a href="{{ route('about') }}">About</a></li>
                 <li><a href="{{ route('view-bookingplan') }}">Booking</a></li>
+                <li>   <a href="{{ route('reviews.index') }}">Reviews</a></li>
                 <li class="has-children">
                     <a href="#">More</a>
                     <ul class="dropdown">
@@ -26,7 +27,7 @@
                         <li><a href="{{ route('view-restaurants') }}">Restaurants & Cafe</a></li>
                         <li><a href="{{ route('historical-sites') }}">Historical Site</a></li>
                         <li><a href="{{ route('destinations') }}">Destination</a></li>
-                        <li><a href="#">Activities</a></li>
+                        <li><a href="{{route('activities.viewall')}}">Activities</a></li>
                         {{-- <li class="has-children">
                             <a href="#">Sub Menu</a>
                             <ul class="dropdown">
@@ -38,7 +39,7 @@
                         <li><a href="#">Menu Three</a></li> --}}
                     </ul>
                 </li>
-                <li><a href="{{ route('contact') }}">Contact Us</a></li>
+                <li><a href="{{ route('contact.showForm') }}">Contact Us</a></li>
 
 
                 <li class="dropdown">

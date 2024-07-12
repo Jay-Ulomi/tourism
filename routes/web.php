@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -13,17 +14,24 @@ use App\Http\Controllers\DestinationController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\CategoryOfferController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\PlanbookingController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\ProfileImageController;
+use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\WebsiteReviewController;
+use App\Models\Role;
 
     // Route::get('/', [HomeController::class, 'index'])->name('index');
     Route::get('/',[HomeController::class,'Home'])->name('index');
     Route::get('/about',[HomeController::class,'about'])->name('about');
-    Route::get('/contact',[HomeController::class,'contact'])->name('contact');
+
+
+    Route::get('/contact', [ContactController::class, 'showForm'])->name('contact.showForm');
+    Route::post('/contact', [ContactController::class, 'submitForm'])->name('contact.submitForm');
 
     Route:: get('/register',[RegistrationController::class,'register'])->name('register');
     Route:: post('/userregistration',[RegistrationController::class,'registration'])->name('userregistration');
@@ -56,13 +64,16 @@ use App\Http\Controllers\ProfileImageController;
 
     Route::get('/Info-Restaurant/{id}',[RestaurantController::class , "showDetails"]) -> name("Restaurant-Info");
 
+    Route::get('activities-all/viewall', [ActivityController::class, 'viewall'])->name('activities.viewall');
+    Route::get('activities-show/show/{id}', [ActivityController::class, 'show'])->name('activities.show-activity');
 
-
+    Route::get('/reviews', [WebsiteReviewController::class, 'index'])->name('reviews.index');
+    Route::get('/activities/{activityId}', [ReviewController::class, 'show'])->name('activities.show');
 // Routes accessible to customers (apply 'customer' middleware)
 Route::middleware(['checkRole:customer'])->group(function () {
     Route::middleware(['auth'])->group(function () {
         Route::get('index', [HomeController::class, 'Home'])->name('userdashboard');
-        
+
         Route::get('/user-bookings/{id}', [BookingController::class, 'index'])->name('user-bookings');
         Route::get('/info-plan', [BookingController::class, 'info_plan'])->name('info-plan');
         Route::get('/getHotelNames', [BookingController::class, 'getHotelNames'])->name('getHotelNames');
@@ -89,6 +100,10 @@ Route::middleware(['checkRole:customer'])->group(function () {
 
         Route::get('/Info-Historical-Site/{id}',[HistoricalSiteController::class , "showDetails"]) -> name("history");
         Route::get('/Info-Restaurant/{id}',[RestaurantController::class , "showDetails"]) -> name("Restaurant-Info");
+
+
+        Route::post('/reviews', [WebsiteReviewController::class, 'store'])->name('reviews.store');
+        Route::post('/reviews-activities/{activityId}', [ReviewController::class, 'store'])->name('reviews-activities.store');
 
     });
 
@@ -193,5 +208,10 @@ Route::middleware(['auth', 'checkRole:admin'])->group(function () {
     Route::get('/view-invoice',[InvoiceController::class,'showInvoice'])->name( 'view-invoice' );
     // Route::get('/view-invoice/{id}',[InvoiceController::class,'show'])->name( 'view-invoice' );
     Route::get('/invoice-paid/{id}', [InvoiceController::class, 'markAsPaid'])->name('invoice-paid');
+
+    Route::get('add-activities',[ActivityController::class,'addActivities'])->name('add-activities');
+
+    Route::resource('activities', ActivityController::class);
+
 
 });
