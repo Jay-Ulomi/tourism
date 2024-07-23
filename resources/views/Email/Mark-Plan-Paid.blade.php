@@ -70,9 +70,9 @@
         <div class="invoice-header">
             <div>
                 <h2>Focus TourTz</h2>
-                <p>HighLand Villa, Mikocheni<br>
-                Unguja, Zanzibar<br>
-                +255 752 937 709</p>
+                <p>Karume International Airport<br>
+                    Nyerere road, Zanzibar<br>
+                    +255712676783 </p>
             </div>
             <div style="text-align: right;">
                 <h3>Invoice {{ $invoice->invoice_number }}</h3>
@@ -95,7 +95,7 @@
                         Total Due: {{ number_format($invoice->amount, 2) }}<br>
                         Account Name: Focus TourTz<br>
                         Country: Tanzania<br>
-                        Account Number: 255 752 937 709<br>
+                        Account Number: <br>
                         Name: Focus TourTz<br>
                     </td>
                     <td><strong>Information</strong><br>

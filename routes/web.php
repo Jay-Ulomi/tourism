@@ -22,6 +22,7 @@ use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\ProfileImageController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\ServiceConroller;
 use App\Http\Controllers\WebsiteReviewController;
 use App\Models\Role;
 
@@ -69,6 +70,8 @@ use App\Models\Role;
 
     Route::get('/reviews', [WebsiteReviewController::class, 'index'])->name('reviews.index');
     Route::get('/activities/{activityId}', [ReviewController::class, 'show'])->name('activities.show');
+
+    Route::get('/services', [ServiceConroller::class, 'index'])->name('services.show');
 // Routes accessible to customers (apply 'customer' middleware)
 Route::middleware(['checkRole:customer'])->group(function () {
     Route::middleware(['auth'])->group(function () {

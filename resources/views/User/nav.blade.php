@@ -16,7 +16,7 @@
 
             <ul class="js-clone-nav d-none d-lg-inline-block text-left site-menu float-right">
                 <li class="active"><a href="{{ route('index') }}">Home</a></li>
-                <li><a href="services.html">Services</a></li>
+                <li><a href="{{route('services.show')}}">Services</a></li>
                 <li><a href="{{ route('about') }}">About</a></li>
                 <li><a href="{{ route('view-bookingplan') }}">Booking</a></li>
                 <li>   <a href="{{ route('reviews.index') }}">Reviews</a></li>

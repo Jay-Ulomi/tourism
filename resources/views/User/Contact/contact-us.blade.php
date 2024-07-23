@@ -55,19 +55,22 @@
                     <div class="quick-contact-item d-flex align-items-center mb-4">
                         <span class="flaticon-house"></span>
                         <address class="text">
-                            155 Market St #101, Paterson, NJ 07505, Zanzibar
+                            Karume International Airport,Nyerere road, Tanzania, Zanzibar
                         </address>
                     </div>
                     <div class="quick-contact-item d-flex align-items-center mb-4">
                         <span class="flaticon-phone-call"></span>
                         <address class="text">
+                            +255712676783
+                            +255625625676
+
                             +255 7012451360
                         </address>
                     </div>
                     <div class="quick-contact-item d-flex align-items-center mb-4">
                         <span class="flaticon-mail"></span>
                         <address class="text">
-                            info@zanz.com
+                            nicksfrumence@gmail.com
                         </address>
                     </div>
                 </div>

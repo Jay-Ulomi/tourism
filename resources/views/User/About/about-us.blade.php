@@ -39,22 +39,33 @@
         </div>
         <div class="col-lg-5 pl-lg-5 ml-auto">
           <h2 class="section-title mb-4">About  FocusTourTz</h2>
-          <p>At Zanz, we understand that the journey is just as important as the destination.
-            That's why we've made it our mission to redefine the way you experience travel.
-            From the moment you set foot in your destination to the time you bid it farewell,
-             Zanz is here to ensure every moment is filled with comfort, convenience, and unparalleled adventure.</p>
-          <ul class="list-unstyled two-col clearfix">
-            <li>Outdoor recreation activities</li>
-            <li>Airlines</li>
-            <li>Car Rentals</li>
-            <li>Cruise Lines</li>
-            <li>Hotels</li>
-            <li>Railways</li>
-            <li>Travel Insurance</li>
-            <li>Package Tours</li>
-            <li>Insurance</li>
-            <li>Guide Books</li>
-          </ul>
+          <p>
+            Welcome to Focustourtz, a leading tour operating company and vacation assistant committed to
+            crafting unforgettable memories and breathtaking experiences for travelers in Africa.
+            Headquartered in Zanzibar, our operations span across Tanzania, ensuring a seamless and
+            exceptional journey from start to finish.</p>
+
+            <h2>Our Mission</h2>
+            <p>
+                Our mission is to create unforgettable memories and breathtaking experiences for anyone
+                seeking a vacation in Africa. We aim to plan and manage every aspect of our clients' vacations
+                from start to finish. Our services include booking and providing seamless transfers, arranging
+                exciting activities, guiding excursions and safari tours, securing hotel accommodations, and
+                ensuring easy transportation throughout the trip.
+            </p>
+            <h2>Our Core Values</h2>
+            <p>
+                At Focustourtz, we prioritize respect and care for every client,
+                regardless of their background. We are committed to punctuality
+                and attentively listening to our customers' needs, striving to
+                fulfill their desires. Our guiding principles are respect, kindness,
+                 and valuing customers' experiences. We operate in both regions that
+                 comprise Tanzania: Tanganyika and Zanzibar - Unguja Island.
+            </p>
+            <h2>Our Vision</h2>
+            <p>We aspire to become the premier tour operator in East Africa and the
+              leading provider of travel assistance. Our goal is to deliver exceptional
+              service and create lasting memories for our clients.</p>
         </div>
       </div>
     </div>
@@ -75,18 +86,18 @@
       <div class="row">
         <div class="col-lg-3 mb-4">
           <div class="team">
-            <img src="user/images/person_1.jpg" alt="Image" class="img-fluid mb-4 rounded-20">
+            <img src="user/images/nick.jpg" alt="Image" class="img-fluid mb-4 rounded-20">
             <div class="px-3">
-              <h3 class="mb-0">James Watson</h3>
+              <h3 class="mb-0">Nickson Frumence Kavishe</h3>
               <p>Co-Founder &amp; CEO</p>
             </div>
           </div>
         </div>
         <div class="col-lg-3 mb-4">
           <div class="team">
-            <img src="user/images/person_2.jpg" alt="Image" class="img-fluid mb-4 rounded-20">
+            <img src="user/images/jay.jpg" alt="Image" class="img-fluid mb-4 rounded-20">
             <div class="px-3">
-              <h3 class="mb-0">Carl Anderson</h3>
+              <h3 class="mb-0">Joseph Ulomi</h3>
               <p>Co-Founder &amp; CEO</p>
             </div>
           </div>
@@ -96,8 +107,8 @@
           <div class="team">
             <img src="user/images/person_4.jpg" alt="Image" class="img-fluid mb-4 rounded-20">
             <div class="px-3">
-              <h3 class="mb-0">Michelle Allison</h3>
-              <p>Co-Founder &amp; CEO</p>
+              <h3 class="mb-0">Faudhia Aboubakar</h3>
+              <p>Secretary</p>
             </div>
           </div>
         </div>
@@ -105,12 +116,47 @@
           <div class="team">
             <img src="user/images/person_3.jpg" alt="Image" class="img-fluid mb-4 rounded-20">
             <div class="px-3">
-              <h3 class="mb-0">Drew Wood</h3>
-              <p>Co-Founder &amp; CEO</p>
+              <h3 class="mb-0">Béatrice Charles </h3>
+              <p>Customer Care</p>
             </div>
           </div>
         </div>
-
+        <div class="col-lg-3 mb-4">
+            <div class="team">
+              <img src="user/images/person_3.jpg" alt="Image" class="img-fluid mb-4 rounded-20">
+              <div class="px-3">
+                <h3 class="mb-0">Emily </h3>
+                <p>Customer Care</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 mb-4">
+            <div class="team">
+              <img src="user/images/person_3.jpg" alt="Image" class="img-fluid mb-4 rounded-20">
+              <div class="px-3">
+                <h3 class="mb-0">Hilally </h3>
+                <p>Guide</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 mb-4">
+            <div class="team">
+              <img src="user/images/person_3.jpg" alt="Image" class="img-fluid mb-4 rounded-20">
+              <div class="px-3">
+                <h3 class="mb-0">Agustino Ludovik </h3>
+                <p>Driver</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 mb-4">
+            <div class="team">
+              <img src="user/images/person_3.jpg" alt="Image" class="img-fluid mb-4 rounded-20">
+              <div class="px-3">
+                <h3 class="mb-0">Lameck Kifera </h3>
+                <p>Cyber Security Officer</p>
+              </div>
+            </div>
+          </div>
       </div>
 
     </div>

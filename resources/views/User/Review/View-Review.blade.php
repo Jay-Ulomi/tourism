@@ -39,87 +39,80 @@
 
 </style>
 <section class="untree_co-section">
-  <div class="container my-5 py-5">
-    <div class="row text-center justify-content-center mb-5">
+    <div class="container my-5 py-5">
+      <div class="row text-center justify-content-center mb-5">
         <div class="col-lg-7">
-            <h2 class="section-title text-center"> Customers Reviews</h2>
+          <h2 class="section-title text-center"> Customers Reviews</h2>
         </div>
-    </div>
-    <div class="row d-flex justify-content-center">
-      <div class="col-md-12">
-        <div class="text-center mb-4 pb-2">
-          <i class="fas fa-quote-left fa-3x text-black"></i>
-        </div>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-12">
+          <div class="text-center mb-4 pb-2">
+            <i class="fas fa-quote-left fa-3x text-black"></i>
+          </div>
 
-        <div class="card">
-          <div class="card-body px-4 py-5">
-            <!-- Carousel wrapper -->
-            <div id="carouselDarkVariant" data-mdb-carousel-init class="carousel slide carousel-dark" data-mdb-ride="carousel">
-              <!-- Indicators -->
-              <div class="carousel-indicators mb-0">
-                <button data-mdb-button-init data-mdb-target="#carouselDarkVariant" data-mdb-slide-to="0" class="active"
-                  aria-current="true" aria-label="Slide 1"></button>
-                <button data-mdb-button-init data-mdb-target="#carouselDarkVariant" data-mdb-slide-to="1"
-                  aria-label="Slide 1"></button>
-                <button data-mdb-button-init data-mdb-target="#carouselDarkVariant" data-mdb-slide-to="2"
-                  aria-label="Slide 1"></button>
-              </div>
+          <div class="card">
+            <div class="card-body px-4 py-5">
+              <!-- Carousel wrapper -->
+              <div id="carouselDarkVariant" data-mdb-carousel-init class="carousel slide carousel-dark" data-mdb-ride="carousel">
+                <!-- Indicators -->
+                <div class="carousel-indicators mb-0">
+                  @foreach ($webreviews as $index => $webreview)
+                  <button data-mdb-button-init data-mdb-target="#carouselDarkVariant" data-mdb-slide-to="{{ $index }}" class="{{ $index == 0 ? 'active' : '' }}" aria-current="true" aria-label="Slide {{ $index + 1 }}"></button>
+                  @endforeach
+                </div>
 
-              <!-- Inner -->
-              <div class="carousel-inner pb-5">
-                <!-- Single item -->
-                @foreach ($webreviews as $index => $webreview)
-
-                <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
-                  <div class="row d-flex justify-content-center  text-black">
-                    <div class="col-lg-10 col-xl-8">
-                      <div class="row">
-                        <div class="col-lg-4 d-flex justify-content-center">
-
+                <!-- Inner -->
+                <div class="carousel-inner pb-5">
+                  @foreach ($webreviews as $index => $webreview)
+                  <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                    <div class="row d-flex justify-content-center text-black">
+                      <div class="col-lg-10 col-xl-8">
+                        <div class="row">
+                          <div class="col-lg-4 d-flex justify-content-center">
                             @if ($webreview->user->profileimage)
                             <img src="{{ asset('storage/' . $webreview->user->profileimage->image_path) }}" alt="User Profile Image" class="rounded-circle shadow-1 mb-4 mb-lg-0" width="150" height="150" />
-                          @else
-                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp" class="rounded-circle shadow-1 mb-4 mb-lg-0" alt="woman avatar" width="150" height="150" />
-                          @endif
-                        </div>
-                        <div
-                          class="col-9 col-md-9 col-lg-7 col-xl-8 text-center text-lg-start mx-auto mx-lg-0">
-                          <h4 class="mb-4">{{$webreview->user->first_name}} {{$webreview->user->last_name}} - {{$webreview->title}}</h4>
-                          <p class="mb-0 pb-3">
-                            {{$webreview->comment}}
-                          </p>
-                          <ul class="list-unstyled d-flex justify-content-center">
+                            @else
+                            @php
+                            $initials = strtoupper(substr($webreview->user->first_name, 0, 1) . substr($webreview->user->last_name, 0, 1));
+                            @endphp
+                            <div class="default-avatar rounded-circle shadow-1 mb-4 mb-lg-0 d-flex align-items-center justify-content-center" style="width: 150px; height: 150px; background-color: #6c757d; color: white; font-size: 48px;">
+                              {{ $initials }}
+                            </div>
+                            @endif
+                          </div>
+                          <div class="col-9 col-md-9 col-lg-7 col-xl-8 text-center text-lg-start mx-auto mx-lg-0">
+                            <h4 class="mb-4">{{ $webreview->user->first_name }} {{ $webreview->user->last_name }} - {{ $webreview->title }}</h4>
+                            <p class="mb-0 pb-3">
+                              {{ $webreview->comment }}
+                            </p>
+                            <ul class="list-unstyled d-flex justify-content-center">
                               @for ($i = 0; $i < $webreview->rating; $i++)
-                                <li><i class="fas fa-star fa-sm text-info"></i></li>
+                              <li><i class="fas fa-star fa-sm text-info"></i></li>
                               @endfor
                               @for ($i = $webreview->rating; $i < 5; $i++)
-                                <li><i class="far fa-star fa-sm text-info"></i></li>
+                              <li><i class="far fa-star fa-sm text-info"></i></li>
                               @endfor
                             </ul>
+                            <a href="{{ route('reviews.index') }}" class="btn btn-primary">Leave Review</a>
+                          </div>
                         </div>
-
                       </div>
                     </div>
                   </div>
+                  @endforeach
                 </div>
-
-                @endforeach
-
-
+                <!-- Inner -->
               </div>
-              <!-- Inner -->
-
-              <!-- Controls -->
-
+              <!-- Carousel wrapper -->
             </div>
-            <!-- Carousel wrapper -->
           </div>
-        </div>
 
-        <div class="text-center mt-4 pt-2">
-          <i class="fas fa-quote-right fa-3x text-black"></i>
+          <div class="text-center mt-4 pt-2">
+            <i class="fas fa-quote-right fa-3x text-black"></i>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+

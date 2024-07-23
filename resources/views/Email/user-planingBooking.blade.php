@@ -123,7 +123,7 @@
                                     <li><strong>Check-in Date:</strong> {{ $planbooking->start_at }}</li>
                                     <li><strong>Check-out Date:</strong> {{ $planbooking->end_at }}</li>
                                     <li><strong>Number of People:</strong>{{ $planbooking->numberOfPeople }}</li>
-                                    <li><strong>Total Price:</strong> {{ number_format($planbooking->totalPrice, 2) }} Tsh</li>
+                                    {{-- <li><strong>Total Price:</strong> {{ number_format($planbooking->totalPrice, 2) }} Tsh</li> --}}
                                     <!-- Add more booking details as needed -->
                                 </ul>
                                 <p>We look forward to welcoming you. If you have any questions or need further assistance, feel free to contact us.</p>
@@ -132,7 +132,7 @@
                                     Embark on a journey with us through diverse destinations, historical sites, and beyond, as we enrich your travels with adventure and history.
                                     Experience a world of wonder and discovery unlike any other. Meet new people and experience the beauty of this world.
                                 </p>
-                                <p>Contact Us at +977-9843567890 / info@travelbooking.com</p>
+                                <p>Contact Us at +255712676783 or +255 712 451 360 / nicksfrumence@gmail.com</p>
                             </td>
 
 

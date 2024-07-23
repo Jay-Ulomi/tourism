@@ -48,9 +48,10 @@
                         <div class="widget">
                             <h3 class="heading">Contact</h3>
                             <ul class="list-unstyled quick-info links">
-                                <li class="email"><a href="#">info@example.com</a></li>
-                                <li class="phone"><a href="#">+255 7521 3819</a></li>
-                                <li class="address"><a href="#">54 Zanzibar</a></li>
+                                <li class="email"><a href="#">nicksfrumence@gmail.com</a></li>
+                                <li class="phone"><a href="#">+255 712 676 783</a></li>
+                                <li class="phone"><a href="#">+255 712 451 360</a></li>
+                                <li class="address"><a href="#">Karume International Airport,Nyerere road, Zanzibar</a></li>
                             </ul>
                         </div>
                     </div>

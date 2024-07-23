@@ -32,8 +32,16 @@
                 @else
                     @foreach ($reviews as $review)
                         <div class="review">
-                            <img src="{{ $review->user->profileimage ? asset('storage/' . $review->user->profileimage->image_path) : asset('default-profile.png') }}"
-                                 alt="User Profile Image" class="rounded-circle shadow-1" width="50" height="50" />
+                           @if ($review->user->profileimage)
+                          <img src="{{ asset('storage/' . $review->user->profileimage->image_path) }}" alt="User Profile Image" class="rounded-circle shadow-1 mb-4 mb-lg-0" width="50" height="50" />
+                          @else
+                          @php
+                          $initials = strtoupper(substr($review->user->first_name, 0, 1) . substr($review->user->last_name, 0, 1));
+                          @endphp
+                          <div class="default-avatar rounded-circle shadow-1 mb-4 mb-lg-0 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; background-color: #6c757d; color: white; font-size: 24px;">
+                            {{ $initials }}
+                          </div>
+                          @endif
                             <div class="review-details">
                                 <strong>{{ $review->user->first_name }} {{ $review->user->last_name }}</strong>
                                 <div class="star-rating">
@@ -91,7 +99,7 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            let reviewCount = 5;
+            let reviewCount = 3;
             const reviews = document.querySelectorAll('.review');
             const loadMoreBtn = document.getElementById('load-more-btn');
 
@@ -106,7 +114,7 @@
             }
 
             loadMoreBtn.addEventListener('click', function() {
-                reviewCount += 5;
+                reviewCount += 3;
                 showReviews(reviewCount);
             });
 
